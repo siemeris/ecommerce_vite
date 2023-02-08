@@ -6,7 +6,7 @@ require('dotenv').config();
 const connectDB = async () => {
   try {
 
-    const conn = await mongoose.connect(`mongodb+srv://${process.env.DB_USER}}:${process.env.DB_PASSWORD}@cluster0.flxoxrp.mongodb.net/test`, {
+    const conn = await mongoose.connect(process.env.DB_MONGO_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,

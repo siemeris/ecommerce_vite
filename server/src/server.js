@@ -1,5 +1,6 @@
 const app = require('./app')
 
+const connectDB = require('./utils/database.js')
 
 
 /*
@@ -9,6 +10,7 @@ return {}
 */
 const startServer = () => { 
   app.listen(3232, () => {
+    connectDB()
     console.log('Server is running on port 3232')
   })
 }
