@@ -1,7 +1,7 @@
 const mongoose  = require("mongoose");
 const { Schema } = require('mongoose');
 
-const domicilioSchema = new Schema({
+const homeSchema = new Schema({
     ciudad:{
         type: 'string',
         required: true
@@ -36,6 +36,6 @@ const domicilioSchema = new Schema({
     }
 });
 
-const Domicilio = mongoose.model('domicilio', domicilioSchema)
+const Home = mongoose.model('home', homeSchema)
 
-module.exports = Domicilio;
+module.exports = Home;

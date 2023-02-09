@@ -1,7 +1,7 @@
 const mongoose  = require("mongoose");
 const { Schema } = require('mongoose');
 
-const pagosSchema = new Schema({
+const paymentsSchema = new Schema({
     numero: {
         type: 'string',
         required: true
@@ -25,6 +25,6 @@ const pagosSchema = new Schema({
 
 })
 
-const Pagos = mongoose.model('pagos', pagosSchema)
+const Payments = mongoose.model('payments', paymentsSchema)
 
-module.exports = Pagos;
+module.exports = Payments;
