@@ -1,5 +1,8 @@
 const express  = require('express')
 
+// routers user
+const { userRouter } = require('./routers/user.router')
+
 const app = express()
 
 
@@ -11,6 +14,6 @@ app.use(express.urlencoded({extended: true}))
 
 // endpoints
 // .....
-app.use('/api/v1/users/')
+app.use('/api/v1/users/', userRouter)
 
 module.exports = app
