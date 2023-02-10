@@ -1,7 +1,7 @@
 const AppError = require('../utils/appError');
 const tryCatch = require('../utils/tryCatch');
 
-const User = require('../models/userModel');
+const User = require('../models/usersModels');
 
 exports.login = tryCatch(async (req, res, next) => {
   const { email, password } = req.body;
