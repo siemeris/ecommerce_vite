@@ -2,7 +2,7 @@ import React from 'react'
 
 const CardDestacados = () => {
     return (
-        <div className="flex justify-center">
+        <div className="flex justify-center ml-5">
             <div className="flex flex-row w-96 h-36 rounded-lg bg-white shadow-lg">
                 <img className="w-24 h-auto object-cover rounded-l-lg" src="https://cdn.idealo.com/folder/Product/201843/4/201843467/s11_produktbild_gross/logitech-signature-m650-large-pink.jpg" alt="" />
                 <div className="flex flex-col justify-start w-full ml-2">

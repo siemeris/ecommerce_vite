@@ -3,7 +3,7 @@ import MesaTrabajo from '../img/6003841_Mesa_de_trabajo.png'
 
 const CardOfertas = () => {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg ml-5">
       <img className="w-full" src={MesaTrabajo} alt="Mesa Trabajo" />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">Black Friday</div>
