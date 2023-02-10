@@ -11,5 +11,6 @@ app.use(express.urlencoded({extended: true}))
 
 // endpoints
 // .....
+app.use('/api/v1/users/')
 
 module.exports = app
