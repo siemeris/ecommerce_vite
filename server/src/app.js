@@ -14,6 +14,6 @@ app.use(express.urlencoded({extended: true}))
 
 // endpoints
 // .....
-app.use('/api/v1/users/', userRouter)
+app.use('/api/v1/users', userRouter)
 
 module.exports = app
