@@ -51,8 +51,8 @@ exports.registerUser = tryCatch(async (req, res, next) => {
   const userNew = {
     email,
     password: passwordHash,
-    nameUser,
-    nameFull,
+    nombreUsuario: nameUser,
+    nombre: nameFull,
   }
 
   // resgistrando el usuario en el modelo User

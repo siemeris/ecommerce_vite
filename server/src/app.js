@@ -17,6 +17,6 @@ app.use(express.urlencoded({extended: true}))
 
 // endpoints
 // .....
-app.use('/api/v1/users', userRouter)
+app.use('/api/v1/users', require('./routers/user.router').userRouter)
 app.use(globalError)
 module.exports = app
