@@ -1,7 +1,7 @@
 const AppError = require('../utils/appError');
 const tryCatch = require('../utils/tryCatch');
 
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 const User = require('../models/usersModels');
 
