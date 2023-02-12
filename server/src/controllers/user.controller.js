@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 
 const User = require('../models/usersModels');
 
-exports.login = tryCatch(async (req, res, next) => {
+exports.loginUser = tryCatch(async (req, res, next) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -29,7 +29,7 @@ exports.login = tryCatch(async (req, res, next) => {
 
 }); 
 
-exports.Register = tryCatch(async (req, res, next) => { 
+exports.registerUser = tryCatch(async (req, res, next) => { 
   const {
     email, 
     password,
