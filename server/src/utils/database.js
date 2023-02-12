@@ -3,9 +3,11 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 // connect database
-const connectDB = () => {
+const connectDB = async() => {
 
-  mongoose.connect(process.env.DB_MONGO_URL, {
+  mongoose.set('strictQuery', false)
+
+  const conn = await mongoose.connect(process.env.DB_MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // useCreateIndex: true,
