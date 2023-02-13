@@ -45,3 +45,12 @@ exports.userRegisterBody = [
     .isString()
     .withMessage('role must be a string'),
 ];
+
+exports.userLoginBody = [
+  body('email')
+    .notEmpty()
+    .withMessage('email is required')
+    .isEmail()
+    .withMessage('email is not valid')
+    .normalizeEmail()
+]
