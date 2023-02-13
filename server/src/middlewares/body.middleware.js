@@ -1,7 +1,7 @@
 const { validationChain, validationResult } = require('express-validator');
 
 // Errors utils
-const AppError = require('../utils/appError');
+const AppError = require('../utils/AppError');
 
 const validate = validations => { 
 
@@ -12,7 +12,7 @@ const validate = validations => {
 
     if (errors.isEmpty()) return next();
 
-    return next(new AppError('Validation error', 400, errors.array()));
+    return next(new AppError(errors.array(), 400));
   };
 
 };
