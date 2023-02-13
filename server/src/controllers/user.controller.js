@@ -31,10 +31,13 @@ exports.loginUser = tryCatch(async (req, res, next) => {
 
 exports.registerUser = tryCatch(async (req, res, next) => { 
   const {
-    email, 
+    name, 
+    lastName,
     password,
     nameUser,
-    nameFull,
+    photo,
+    email,
+    status
   } = req.body;  
 
   // encontrar en la base de datos si existe el email
@@ -49,10 +52,12 @@ exports.registerUser = tryCatch(async (req, res, next) => {
   const passwordHash = await bcrypt.hash(password, salt);
 
   const userNew = {
+    name,
+    lastName,
+    nameUser,
     email,
     password: passwordHash,
-    nombreUsuario: nameUser,
-    nombre: nameFull,
+    photo
   }
 
   // resgistrando el usuario en el modelo User
