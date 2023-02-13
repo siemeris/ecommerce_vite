@@ -2,27 +2,27 @@ const mongoose  = require("mongoose");
 const { Schema } = require('mongoose');
 
 const userSchema = new Schema({
-    nombre:{
+    name: {
         type: 'string',
         required: true
     },
-    apellido: {
+    lastName: {
         type: 'string',
         required: true
     },
-    contraceña: {
+    pasword: {
         type: 'string',
         required: true
     },
-    nombreUsuario: {
+    nameUser: {
         type: 'string',
         required: true
     },
-    foto: {
+    photo: {
         type: 'string',
         required: true
     },
-    correo: {
+    email: {
         type: 'string',
         required: true
     },
