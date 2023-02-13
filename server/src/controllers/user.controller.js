@@ -63,6 +63,12 @@ exports.registerUser = tryCatch(async (req, res, next) => {
   // resgistrando el usuario en el modelo User
   const user = await User.create(userNew);
 
+  if(!user) {
+    return next(new AppError('Error al crear el usuario', 404));
+  }
+
+  user.save()
+
   user.password = undefined;
 
   return res.status(200).json({

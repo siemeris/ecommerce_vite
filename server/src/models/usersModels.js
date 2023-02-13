@@ -10,7 +10,7 @@ const userSchema = new Schema({
         type: 'string',
         required: true
     },
-    pasword: {
+    password: {
         type: 'string',
         required: true
     },
