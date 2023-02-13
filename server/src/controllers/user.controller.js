@@ -42,10 +42,9 @@ exports.registerUser = tryCatch(async (req, res, next) => {
     name, 
     lastName,
     password,
-    nameUser,
-    photo,
     email,
-    status
+    photo,
+    nameUser,
   } = req.body;  
 
   // encontrar en la base de datos si existe el email
