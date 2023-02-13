@@ -8,12 +8,13 @@ const {
 // ----- middlewares ----- //
 const { validate } = require('../middlewares/body.middleware');
 const { 
-  userRegisterBody 
+  userRegisterBody,
+  userLoginBody
 } = require('../middlewares/userBody.middleware');
 
 const router = express.Router();
 
-router.post('/login', loginUser);
+router.post('/login', validate(userLoginBody), loginUser);
 router.post('/register', validate(userRegisterBody), registerUser);
 
 module.exports = { userRouter: router }; 
