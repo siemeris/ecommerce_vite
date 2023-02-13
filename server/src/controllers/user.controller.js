@@ -14,11 +14,19 @@ exports.loginUser = tryCatch(async (req, res, next) => {
 
   const userFind = await User.findOne({ email });
 
-
   if (!userFind) {
     return next(new AppError('User not found', 404));
   }
 
+  // desecriptar passord
+  const isMatch = await bcrypt.compare(password, userFind.password);
+
+  if (!isMatch) {
+    return next(new AppError('invalid credentials', 400));
+  }
+
+  userFind.password = undefined;
+ 
   return res.status(200).json({
     code: 200,
     status: 'success',
