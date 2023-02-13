@@ -3,19 +3,18 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 // connect database
-const connectDB = async () => {
-  try {
+const connectDB = async() => {
 
-    const conn = await mongoose.connect(process.env.DB_MONGO_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-      useCreateIndex: true,
-    });
-    
-  } catch (error) {
-    console.log(error);
-  }
+  mongoose.set('strictQuery', false)
+
+  const conn = await mongoose.connect(process.env.DB_MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    // useCreateIndex: true,
+    // useFindAndModify: false
+
+  }).then(() => {})
+    .catch(err => console.log('ERRRO EN LA BASE DE DATOS >>>>> ', err));
 }
 
 
