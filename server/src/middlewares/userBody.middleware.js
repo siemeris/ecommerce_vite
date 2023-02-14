@@ -21,6 +21,15 @@ exports.userRegisterBody = [
     .withMessage('nameUser is required')
     .isString()
     .withMessage('nameUser must be a string'),
+  body('password')
+    .notEmpty()
+    .withMessage('password is required'),
+  body('passwordConfirm').custom((value, { req }) => { 
+    if (value !== req.body.password) {
+      return new Error('Password confirmation does not match password');
+    }
+    return true;
+  }),
   body('email')
     .notEmpty()
     .withMessage('email is required')
@@ -29,22 +38,13 @@ exports.userRegisterBody = [
     .isEmail()
     .withMessage('email is not valid')
     .normalizeEmail()
-    .custom(async (email) => { 
-      const user = await User.findOneByEmail({ email });
-      if (user) {
-        throw new AppError('email already in use', 400);
+    .custom( async(value, { req }) => { 
+      const existinUser = await User.findOne({ email: value })
+      if (existinUser) {
+        throw new AppError('Email already registered')
       }
-      return true; 
+      return true
     }),
-  body('password')
-    .notEmpty()
-    .withMessage('password is required'),
-  body('passwordConfirm').custom((value, { req }) => { 
-    if (value !== req.body.password) {
-      throw new Error('Password confirmation does not match password');
-    }
-    return true;
-  }),
   body('photo')
     .notEmpty()
     .withMessage('photo is required')
