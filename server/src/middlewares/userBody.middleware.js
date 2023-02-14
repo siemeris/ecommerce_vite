@@ -64,4 +64,11 @@ exports.userLoginBody = [
     .isEmail()
     .withMessage('email is not valid')
     .normalizeEmail()
+    .custom(async (email) => {
+      const user = await User.findOneByEmail({ email });
+      if (!user) {
+        throw new AppError('invalid credentials', 400);
+      }
+      return true;
+    })
 ]
