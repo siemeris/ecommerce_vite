@@ -6,6 +6,11 @@ const bcrypt = require('bcrypt');
 // ------- models -------- //
 const User = require('../models/usersModels');
 
+// ------- Firmar/Verificar Token -------- //
+const { 
+  tokenSign,
+} = require('../utils/generateToken');
+
 exports.loginUser = tryCatch(async (req, res, next) => {
   const { email, password } = req.body;
 
@@ -26,6 +31,8 @@ exports.loginUser = tryCatch(async (req, res, next) => {
     return next(new AppError('invalid credentials', 400));
   }
 
+  const token = await tokenSign(userFind);
+
   userFind.password = undefined;
  
   return res.status(200).json({
@@ -33,7 +40,8 @@ exports.loginUser = tryCatch(async (req, res, next) => {
     status: 'success',
     data: {
       user: userFind,
-    }
+    },
+    token,
   }).send();
 
 }); 
