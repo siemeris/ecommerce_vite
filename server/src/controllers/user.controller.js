@@ -56,16 +56,13 @@ exports.registerUser = tryCatch(async (req, res, next) => {
     nameUser,
   } = req.body;  
 
-  // encontrar en la base de datos si existe el email
-  const userFind = await User.findOne({ email });
-
-  if (userFind) {
-    return next(new AppError('este usuario ya esta registrado', 404));
-  }
-
   // encriptar contraseña
   const salt = await bcrypt.genSalt(10);
   const passwordHash = await bcrypt.hash(password, salt);
+
+  if (!passwordHash) {
+    return next(new AppError('incorrect credentials', 401))
+  }
 
   const userNew = {
     name,
