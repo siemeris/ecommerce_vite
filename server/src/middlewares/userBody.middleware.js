@@ -1,5 +1,9 @@
 const { body } = require('express-validator');
 
+// models (schemas)
+const User = require('../models/usersModels');
+const AppError = require('../utils/AppError');
+
 
 exports.userRegisterBody = [
   body('name')
@@ -24,7 +28,14 @@ exports.userRegisterBody = [
     .withMessage('email must be a string')
     .isEmail()
     .withMessage('email is not valid')
-    .normalizeEmail(),
+    .normalizeEmail()
+    .custom(async (email) => { 
+      const user = await User.findOneByEmail({ email });
+      if (user) {
+        throw new AppError('email already in use', 400);
+      }
+      return true; 
+    }),
   body('password')
     .notEmpty()
     .withMessage('password is required'),
