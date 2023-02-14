@@ -3,6 +3,7 @@ const tryCatch = require('../utils/tryCatch');
 
 const bcrypt = require('bcrypt');
 
+// ------- models -------- //
 const User = require('../models/usersModels');
 
 exports.loginUser = tryCatch(async (req, res, next) => {
