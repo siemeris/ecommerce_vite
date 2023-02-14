@@ -12,7 +12,7 @@ exports.loginUser = tryCatch(async (req, res, next) => {
     return next(new AppError('Please provide email and password', 400));
   }
 
-  const userFind = await User.findOne({ email });
+  const userFind = await User.findOneByEmail({ email });
 
   if (!userFind) {
     return next(new AppError('User not found', 404));
