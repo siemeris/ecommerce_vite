@@ -26,6 +26,10 @@ const userSchema = new Schema({
         type: 'string',
         required: true
     },
+    role: {
+      type: 'string',
+      default: 'customer'
+    },
     status: {
         type: 'string',
         default: 'active'
