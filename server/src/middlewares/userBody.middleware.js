@@ -64,11 +64,23 @@ exports.userLoginBody = [
     .isEmail()
     .withMessage('email is not valid')
     .normalizeEmail()
-    .custom(async (email) => {
-      const user = await User.findOneByEmail({ email });
-      if (!user) {
-        throw new AppError('invalid credentials', 400);
-      }
-      return true;
-    })
+    .custom( async(value, { req }) => {
+      const userExisting = await User.findOne({ email: value }, 
+        function (err, value) {
+
+          if (err) {
+            throw new AppError('invalid credentials', 401);
+          }
+
+          return true
+        }
+      );
+
+      return userExisting
+    }),
+  body('password')
+    .notEmpty()
+    .withMessage('Password is required')
+    .isString()
+    .withMessage('Password is String')
 ]
