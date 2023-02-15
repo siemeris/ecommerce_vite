@@ -63,21 +63,7 @@ exports.userLoginBody = [
     .withMessage('email is required')
     .isEmail()
     .withMessage('email is not valid')
-    .normalizeEmail()
-    .custom( async(value, { req }) => {
-      const userExisting = await User.findOne({ email: value }, 
-        function (err, value) {
-
-          if (err) {
-            throw new AppError('invalid credentials', 401);
-          }
-
-          return true
-        }
-      );
-
-      return userExisting
-    }),
+    .normalizeEmail(),
   body('password')
     .notEmpty()
     .withMessage('Password is required')
