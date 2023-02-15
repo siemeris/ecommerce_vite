@@ -24,7 +24,7 @@ const productsSchema = new Schema({
         required: true
     },
     characteristics: {
-        type: 'string',
+        type: [String],
         required: true
     },
     photos: {
