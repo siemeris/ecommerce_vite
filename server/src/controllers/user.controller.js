@@ -26,7 +26,7 @@ exports.loginUser = tryCatch(async (req, res, next) => {
   }
 
   userFind.password = undefined;
- 
+
   return res.status(200).json({
     code: 200,
     status: 'success',
@@ -35,18 +35,18 @@ exports.loginUser = tryCatch(async (req, res, next) => {
     }
   }).send();
 
-}); 
+});
 
-exports.registerUser = tryCatch(async (req, res, next) => { 
+exports.registerUser = tryCatch(async (req, res, next) => {
   const {
-    name, 
+    name,
     lastName,
     password,
     nameUser,
     photo,
     email,
     status
-  } = req.body;  
+  } = req.body;
 
   // encontrar en la base de datos si existe el email
   const userFind = await User.findOne({ email });
@@ -71,7 +71,7 @@ exports.registerUser = tryCatch(async (req, res, next) => {
   // resgistrando el usuario en el modelo User
   const user = await User.create(userNew);
 
-  if(!user) {
+  if (!user) {
     return next(new AppError('Error al crear el usuario', 404));
   }
 
