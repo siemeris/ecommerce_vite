@@ -3,13 +3,7 @@ const tryCatch = require('../utils/tryCatch');
 
 const bcrypt = require('bcrypt');
 
-// ------- models -------- //
 const User = require('../models/usersModels');
-
-// ------- Firmar/Verificar Token -------- //
-const { 
-  tokenSign,
-} = require('../utils/generateToken');
 
 exports.loginUser = tryCatch(async (req, res, next) => {
   const { email, password } = req.body;
@@ -18,7 +12,7 @@ exports.loginUser = tryCatch(async (req, res, next) => {
     return next(new AppError('Please provide email and password', 400));
   }
 
-  const userFind = await User.findOneByEmail({ email });
+  const userFind = await User.findOne({ email });
 
   if (!userFind) {
     return next(new AppError('User not found', 404));
@@ -31,38 +25,39 @@ exports.loginUser = tryCatch(async (req, res, next) => {
     return next(new AppError('invalid credentials', 400));
   }
 
-  const token = await tokenSign(userFind);
-
   userFind.password = undefined;
- 
+
   return res.status(200).json({
     code: 200,
     status: 'success',
     data: {
       user: userFind,
-    },
-    token,
+    }
   }).send();
 
-}); 
+});
 
-exports.registerUser = tryCatch(async (req, res, next) => { 
+exports.registerUser = tryCatch(async (req, res, next) => {
   const {
-    name, 
+    name,
     lastName,
     password,
-    email,
-    photo,
     nameUser,
-  } = req.body;  
+    photo,
+    email,
+    status
+  } = req.body;
+
+  // encontrar en la base de datos si existe el email
+  const userFind = await User.findOne({ email });
+
+  if (userFind) {
+    return next(new AppError('este usuario ya esta registrado', 404));
+  }
 
   // encriptar contraseña
   const salt = await bcrypt.genSalt(10);
   const passwordHash = await bcrypt.hash(password, salt);
-
-  if (!passwordHash) {
-    return next(new AppError('incorrect credentials', 401))
-  }
 
   const userNew = {
     name,
@@ -76,7 +71,7 @@ exports.registerUser = tryCatch(async (req, res, next) => {
   // resgistrando el usuario en el modelo User
   const user = await User.create(userNew);
 
-  if(!user) {
+  if (!user) {
     return next(new AppError('Error al crear el usuario', 404));
   }
 

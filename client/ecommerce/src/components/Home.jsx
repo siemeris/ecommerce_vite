@@ -1,7 +1,7 @@
 import React from 'react'
-import CardPromociones from '../components/CardPromociones'
-import CardDestacados from '../components/CardDestacados'
-import CardOfertas from '../components/CardOfertas'
+import CardPromociones from './CardPromociones'
+import CardDestacados from './CardDestacados'
+import CardOfertas from './CardOfertas'
 
 
 const Home = () => {

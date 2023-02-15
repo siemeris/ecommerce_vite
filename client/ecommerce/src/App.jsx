@@ -1,20 +1,26 @@
 import './App.css'
-import CheckOut from './components/CheckOut'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import Main from './components/Main'
-import Home from './pages/Home'
-
+import ReactDOM from "react-dom/client";
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import MainRoutes from './components/MainRoutes';
 
 function App() {
 
 
   return (
     <div className="App flex flex-col ">
+      
+      {/* Aca van los providers */}
+      <BrowserRouter>
         <Header/>
-        <Home />
-        <CheckOut/>
+          <MainRoutes />
         <Footer />
+      </BrowserRouter>
     </div>
   )
 }
