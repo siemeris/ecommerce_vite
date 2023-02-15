@@ -3,8 +3,6 @@ const router = express.Router();
 
 const Product = require('../controllers/productsControllers')
 
-console.log(' productos ---->  ', )
-
 // PATH /API
 // 
 // router.get('/filter', products);
