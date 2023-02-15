@@ -1,4 +1,4 @@
-const mongoose  = require("mongoose");
+const mongoose = require("mongoose");
 const { Schema } = require('mongoose');
 
 const userSchema = new Schema({
@@ -24,24 +24,25 @@ const userSchema = new Schema({
     },
     email: {
         type: 'string',
-        required: true
+        required: true,
+        unique: true
     },
     role: {
-      type: 'string',
-      default: 'customer'
+        type: 'string',
+        default: 'customer'
     },
     status: {
         type: 'string',
         default: 'active'
     }
 },
-{
-    statics: {
-        findOneByEmail: function (email) {
-            return this.findOne({ email });
-        }  
+    {
+        statics: {
+            findOneByEmail: function (email) {
+                return this.findOne({ email });
+            }
+        }
     }
-}
 );
 
 const User = mongoose.model('user', userSchema)
