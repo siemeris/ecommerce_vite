@@ -30,8 +30,11 @@ const productsSchema = new Schema({
     photos: {
       type: [String],
       required: true
+    },
+    status: {
+      type: 'string',
+      default: 'active'
     }
-    
 })
 
 const Products = mongoose.model('products', productsSchema)
