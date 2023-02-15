@@ -9,11 +9,22 @@ class Product {
             throw error
         }
     }
-    async create(Products){
+    async create(req, res, next){
         try {
-            return await Products.create(Products);
+          const productNew = new Products(req.body);
+          productNew.save();
+          
+          res.status(201).json({
+            status: 'success',
+            data: {
+              product: productNew
+            }
+          })
         } catch (error) {
-            throw error
+          return res.status(500).json({
+            status: 'fail',
+            message: error.message
+          })
         }
     }
     async filter(options) {
