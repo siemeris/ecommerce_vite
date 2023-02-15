@@ -26,7 +26,7 @@ exports.producRegisterBody = [
     .withMessage('La descripcion es requerida')
     .isString()
     .withMessage('La descripcion debe ser un string'),
-  body('caracteristicas')
+  body('characteristics')
     .notEmpty()
     .withMessage('Las caracteristicas son requeridas')
     .isArray()
