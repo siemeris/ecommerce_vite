@@ -10,7 +10,7 @@ const productsSchema = new Schema({
         type: 'string',
         required: true
     },
-    branc: {
+    brand: {
         type: 'string',
         required: true
     },
