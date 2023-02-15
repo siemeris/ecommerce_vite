@@ -6,24 +6,24 @@ const productsSchema = new Schema({
         type: 'string',
         required: true
     },
-    modelo: {
+    model: {
         type: 'string',
         required: true
     },
-    marca: {
+    branc: {
         type: 'string',
         required: true
     },
-    precio: {
+    price: {
         type: Number,
         required: true
 
     },
-    descripcion: {
+    description: {
         type: "string",
         required: true
     },
-    caracteristicas: {
+    characteristics: {
         type: 'string',
         required: true
     },
