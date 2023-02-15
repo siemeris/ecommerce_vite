@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Menu = ({menuVisible, setMenuVisible}) => {
 
@@ -31,10 +32,14 @@ const Menu = ({menuVisible, setMenuVisible}) => {
             categoriasVisible 
                 &&
                     <div className='flex flex-col text-center w-full transition-all '>
-                            <li className='list-none hover:cursor-pointer text-start ml-5'  >Computadoras</li>
-                            <li className='list-none hover:cursor-pointer text-start ml-5' >Celulares</li>
-                            <li className='list-none hover:cursor-pointer text-start ml-5' >Auriculares</li>
-                            <li className='list-none hover:cursor-pointer text-start ml-5' >Teclados</li>
+                            <Link className="list-none hover:cursor-pointer text-start ml-5" to={"/productos/compus"}>Computadoras</Link>
+                            <Link className="list-none hover:cursor-pointer text-start ml-5" to={"/productos/celulares"}>Celulares</Link>
+                            <Link className="list-none hover:cursor-pointer text-start ml-5" to={"/productos/Auris"}>Auriculares</Link>
+                            <Link className="list-none hover:cursor-pointer text-start ml-5" to={"/productos/teclados"}>Teclados</Link>
+                            {/* <li className='list-none hover:cursor-pointer text-start ml-5' >Computadoras</li> */}
+                            {/* <li className='list-none hover:cursor-pointer text-start ml-5' >Celulares</li> */}
+                            {/* <li className='list-none hover:cursor-pointer text-start ml-5' >Auriculares</li> */}
+                            {/* <li className='list-none hover:cursor-pointer text-start ml-5' >Teclados</li> */}
                     </div>
         }
             <div className="w-full mb-2 flex justify-start">
