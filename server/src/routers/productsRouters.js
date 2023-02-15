@@ -1,19 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-const {
-    products,
-    createProducts,
-    updateProducts,
-    deleteProducts
-} = require('../controllers/productsControllers')
+const Product = require('../controllers/productsControllers')
+
+console.log(' productos ---->  ', )
 
 // PATH /API
 // 
-router.get('/filter', products);
-router.post('/computadoras', createProducts);
-router.put('/computadoras:id', updateProducts);
-router.delete('/computadoras:id', deleteProducts);
+// router.get('/filter', products);
+router.post('/computadoras', Product.create);
+router.put('/computadoras:id', Product.update);
+router.delete('/computadoras:id', Product.delete);
 
 
 

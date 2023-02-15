@@ -1,6 +1,6 @@
 const Products = require('../models/productsModels');
 
-class products {
+class Product {
 
     async findAll(){
         try {
@@ -36,4 +36,4 @@ class products {
 }};
 
 
-module.exports = new products;
+module.exports = new Product;
