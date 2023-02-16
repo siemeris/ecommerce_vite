@@ -3,11 +3,11 @@ import Kerfin from '../img/Kerfin7_NEA_2267-01.png'
 
 const CardPromociones = () => {
     return (
-        <div className="max-w-xs min-w-full rounded overflow-hidden shadow-lg ml-5">
+        <div className="flex-none w-64 rounded overflow-hidden shadow-lg ml-5">
             <div className='flex justify-between w-full'>
             <img className="w-44 h-48" src={Kerfin} alt="Kerfin" />
 
-            <p className='text-xl m-auto pt-20 -rotate-90 font-extrabold transform text-center inline-block'> AUDÍFONOS LOGITECH</p>
+            <p className='text-xl pt-16 -rotate-90 font-extrabold transform text-center inline-block'> AUDÍFONOS LOGITECH</p>
            
             </div>
             <div className="px-6 py-4">

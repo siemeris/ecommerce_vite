@@ -7,7 +7,7 @@ const Menu = ({menuVisible, setMenuVisible}) => {
     const [categoriasVisible, setCategoriasVisible] = useState(false)
 
   return (
-    <div className='absolute -inset-0 w-2/3 flex justify-evenly flex-col h-full bg-slate-50 p-4'>
+    <div className='absolute -inset-0 w-2/3 flex justify-evenly flex-col h-full bg-slate-50 p-4 z-30'>
         
         {/* Titulo y cierre */}
         <div className="w-full flex justify-between content-center">
