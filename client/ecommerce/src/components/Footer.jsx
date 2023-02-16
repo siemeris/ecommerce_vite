@@ -34,7 +34,7 @@ const Footer = () => {
             <img className='m-auto mb-10' src="./public/img/data_fiscal.png" alt="" />
             {/* Data Dirección */}
             <div className='w-7/12 flex justify-center gap-4 m-auto '>
-                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
                 <p className='text-xs'>Calle falsa 123 - Local 4</p>
             </div>
             <p className='text-xs pb-5 m-auto text-center' >2023 TecnoStore - Derechos reservados</p>

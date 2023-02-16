@@ -10,7 +10,7 @@ const Login = () => {
                 </h1>
                 <Link to="/">
                     <button className='w-5 h-5 my-auto'>
-                        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M15.7,14.3c0.4,0.4,0.4,1,0,1.4c-0.4,0.4-1,0.4-1.4,0
+                        <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" viewBox="0 0 24 24"><path d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M15.7,14.3c0.4,0.4,0.4,1,0,1.4c-0.4,0.4-1,0.4-1.4,0
 	L12,13.4l-2.3,2.3c-0.4,0.4-1,0.4-1.4,0c-0.4-0.4-0.4-1,0-1.4l2.3-2.3L8.3,9.7c-0.4-0.4-0.4-1,0-1.4c0.4-0.4,1-0.4,1.4,0l2.3,2.3
 	l2.3-2.3c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4L13.4,12L15.7,14.3z" fill="#d85b53" class="color000000 svgShape"></path></svg>
                     </button>
@@ -31,7 +31,7 @@ const Login = () => {
             <div className='flex w-full justify-between mb-5'>
                 <div class="flex items-center my-4">
                     <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                    <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900">Recuérdame</label>
+                    <label htmlFor="default-checkbox" class="ml-2 text-sm font-medium text-gray-900">Recuérdame</label>
                 </div>
                 <p className='text-sm font-medium underline my-4 text-gray-900'>Recuperar contraseña </p>
             </div>
