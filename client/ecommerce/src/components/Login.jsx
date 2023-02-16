@@ -40,9 +40,9 @@ const Login = () => {
 
             <p className='text-gray-800 text-sm inline-block text-grey-300 hover:cursor-pointer font-medium'>¿No tenés cuenta? <span className='underline hover:cursor-pointer ' >Regístrate</span></p>
 
-            <div class="inline-flex items-center justify-center w-full">
-                <hr class="w-full h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
-                <span class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 text-sm">o también</span>
+            <div className="inline-flex items-center justify-center w-full">
+                <hr className="w-full h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
+                <span className="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 text-sm">o también</span>
             </div>
 
             <div className='flex flex-row justify-center mb-6 space-x-8'>

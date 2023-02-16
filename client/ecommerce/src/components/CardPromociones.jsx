@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Kerfin from '../img/Kerfin7_NEA_2267-01.png'
 
 const CardPromociones = () => {
@@ -46,9 +47,12 @@ const CardPromociones = () => {
                 </div>
             </div>
             <div className="px-6 pb-2 flex justify-center">
-                <button className="w-52 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg">
-                    Comprar
-                </button>
+                
+                <Link to={"/productos/itemdetail"}>
+                    <button className="w-52 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg">
+                        Comprar
+                    </button>
+                </Link>
             </div>
         </div>
     )
