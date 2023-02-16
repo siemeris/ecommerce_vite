@@ -3,7 +3,7 @@ import Kerfin from '../img/Kerfin7_NEA_2267-01.png'
 
 const CardPromociones = () => {
     return (
-        <div className="max-w-xs rounded overflow-hidden shadow-lg ml-5">
+        <div className="max-w-xs min-w-full rounded overflow-hidden shadow-lg ml-5">
             <div className='flex justify-between w-full'>
             <img className="w-44 h-48" src={Kerfin} alt="Kerfin" />
 
