@@ -21,6 +21,7 @@ const MainRoutes = () => {
           <Route path='/productos/:categoriaProductos' element={<ListaDeProductos />}/>
           <Route path='/productos/itemdetail' element={<ItemDetail />}/>
 
+
         </Routes>
     </main>
   )
