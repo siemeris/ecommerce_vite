@@ -16,7 +16,8 @@ const MenuCarrito = ({ setMenuCarritoVisible, menuCarritoVisible }) => {
         <div className="w-full overflow-y-auto px-4 z-50">
         {/* Producto */}
             <div className="flex border-b border-gray-300 pb-5">
-              <img className="object-contain w-1/3" src="./public/img/parlante.png" alt=""/>
+            
+              <img className="object-contain w-1/3" src="client\ecommerce\public\img\parlante.png" alt=""/>
               <div className="w-2/3 p-5">
                 <div>
                   <h3 className="text-start text-gray-800 font-bold text-sm">
