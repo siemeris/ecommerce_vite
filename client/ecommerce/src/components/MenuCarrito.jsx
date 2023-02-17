@@ -2,7 +2,9 @@ import React from "react";
 
 const MenuCarrito = ({ setMenuCarritoVisible, menuCarritoVisible }) => {
   return (
-    <div className="right-0 bottom-0 w-4/5 h-full z-30 bg-blue-100 pt-7 fixed">
+    <div className="right-0 bottom-0 w-4/5 h-screen z-30 bg-blue-100 pt-7 fixed overflow-auto">
+
+      
         {/* Titulo */}
        <div className="w-full flex justify-between content-center border-b pb-5 border-gray-300">
           <h3 className="w-4/5 text-gray-400 text-start uppercase font-bold m-auto">
@@ -13,10 +15,12 @@ const MenuCarrito = ({ setMenuCarritoVisible, menuCarritoVisible }) => {
           </svg>
        </div>
         {/* Contenedor de toda la lista de productos del carrito */}
-        <div className="w-full overflow-y-auto px-4 z-50">
+          <div className="w-full overflow min-h-screen absolute z-50 bg-indigo-300">
+        {/* flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mb-8 */}
         {/* Producto */}
             <div className="flex border-b border-gray-300 pb-5">
-              <img className="object-contain w-1/3" src="./public/img/parlante.png" alt=""/>
+            
+              <img className="object-contain w-1/3" src="../public/img/parlante.png" alt=""/>
               <div className="w-2/3 p-5">
                 <div>
                   <h3 className="text-start text-gray-800 font-bold text-sm">
@@ -35,7 +39,7 @@ const MenuCarrito = ({ setMenuCarritoVisible, menuCarritoVisible }) => {
             </div>
         {/* Producto */}
             <div className="flex border-b border-gray-300 pb-5">
-             <img className="object-contain w-1/3" src="./public/img/parlante.png" alt=""/>
+             <img className="object-contain w-1/3" src="../public/img/parlante.png" alt=""/>
              <div className="w-2/3 p-5">
                <div>
                  <h3 className="text-start text-gray-800 font-bold text-sm">
@@ -54,7 +58,7 @@ const MenuCarrito = ({ setMenuCarritoVisible, menuCarritoVisible }) => {
             </div>
          {/* Producto */}
             <div className="flex border-b border-gray-300 pb-5">
-             <img className="object-contain w-1/3" src="./public/img/parlante.png" alt=""/>
+             <img className="object-contain w-1/3" src="../public/img/parlante.png" alt=""/>
              <div className="w-2/3 p-5">
                <div>
                  <h3 className="text-start text-gray-800 font-bold text-sm">
@@ -73,7 +77,7 @@ const MenuCarrito = ({ setMenuCarritoVisible, menuCarritoVisible }) => {
             </div>
           {/* Producto */}
             <div className="flex border-b border-gray-300 pb-5">
-             <img className="object-contain w-1/3" src="./public/img/parlante.png" alt=""/>
+             <img className="object-contain w-1/3" src="../public/img/parlante.png" alt=""/>
              <div className="w-2/3 p-5">
                <div>
                  <h3 className="text-start text-gray-800 font-bold text-sm">
@@ -90,9 +94,9 @@ const MenuCarrito = ({ setMenuCarritoVisible, menuCarritoVisible }) => {
              </div>
              </div>
             </div>
-        </div>
+        
         {/* Lista del carrito */}
-        {/* <div className="bg-gray-400 w-full px-4 absolute bottom-0">
+        <div className="bg-gray-200 px-4 absolute w-full">
           <div className="w-full mb-5">
            
             <div className="w-full flex justify-between items-center">
@@ -115,7 +119,10 @@ const MenuCarrito = ({ setMenuCarritoVisible, menuCarritoVisible }) => {
             <p className="font-sm font-semiboldtext-lg">Total</p>
             <p className="font-sm font-semiboldtext-lg">$200</p>
           </div>
-        </div> */}
+        </div> 
+
+          </div>
+        
      
     </div>
   );
