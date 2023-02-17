@@ -3,6 +3,7 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import {BrowserRouter} from "react-router-dom";
 import MainRoutes from './components/MainRoutes';
+import CarritoProvider from './components/CarritoProvider';
 
 function App() {
 
@@ -11,11 +12,13 @@ function App() {
     <div className="App flex flex-col ">
       
       {/* Aca van los providers */}
-      <BrowserRouter>
-        <Header/>
-          <MainRoutes />
-        <Footer />
-      </BrowserRouter>
+      <CarritoProvider>
+        <BrowserRouter>
+          <Header/>
+            <MainRoutes />
+          <Footer />
+        </BrowserRouter>
+      </CarritoProvider>
     </div>
   )
 }
