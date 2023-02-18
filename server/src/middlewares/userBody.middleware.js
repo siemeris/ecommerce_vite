@@ -63,12 +63,10 @@ exports.userLoginBody = [
     .withMessage('email is required')
     .isEmail()
     .withMessage('email is not valid')
-    .normalizeEmail()
-    .custom(async (email) => {
-      const user = await User.findOneByEmail({ email });
-      if (!user) {
-        throw new AppError('invalid credentials', 400);
-      }
-      return true;
-    })
+    .normalizeEmail(),
+  body('password')
+    .notEmpty()
+    .withMessage('Password is required')
+    .isString()
+    .withMessage('Password is String')
 ]

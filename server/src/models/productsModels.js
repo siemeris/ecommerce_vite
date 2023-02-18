@@ -6,28 +6,35 @@ const productsSchema = new Schema({
         type: 'string',
         required: true
     },
-    modelo: {
+    model: {
         type: 'string',
         required: true
     },
-    marca: {
+    brand: {
         type: 'string',
         required: true
     },
-    precio: {
+    price: {
         type: Number,
         required: true
 
     },
-    descripcion: {
+    description: {
         type: "string",
         required: true
     },
-    caracteristicas: {
-        type: 'string',
+    characteristics: {
+        type: [String],
         required: true
     },
-    
+    photos: {
+      type: [String],
+      required: true
+    },
+    status: {
+      type: 'string',
+      default: 'active'
+    }
 })
 
 const Products = mongoose.model('products', productsSchema)

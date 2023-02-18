@@ -2,27 +2,28 @@ const Products = require('../models/productsModels');
 
 class Product {
 
-    async findAll(){
+    async findAll() {
         try {
             return await Products.find().lean();
         } catch (error) {
             throw error
         }
     }
-    async create(req, res, next){
+    async create(req, res, next) {
         try {
-            const productCreate =  await Products.create(req.body);
-            productCreate.save()
+            const productNew = new Products(req.body);
+            productNew.save();
 
-            return res.status(202).json({
-                status: 'succes',
+            res.status(201).json({
+                status: 'success',
                 data: {
-                    productCreate
+                    product: productNew
                 }
             })
         } catch (error) {
-            return res.status(404).json({
+            return res.status(500).json({
                 status: 'fail',
+                message: error.message
             })
         }
     }
@@ -30,20 +31,21 @@ class Product {
         // precio, categoria, modelo, marcas
         // code......
     }
-    async delete(id){
+    async delete(id) {
         try {
             return await Products.findByIdAndDelete(id);
         } catch (error) {
             throw error
         }
     }
-    async update(id){
+    async update(id) {
         try {
             return await Products.findByIdAndUpdate(id);
         } catch (error) {
             throw error
         }
-}};
+    }
+};
 
 
 module.exports = new Product;
