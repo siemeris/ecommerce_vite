@@ -1,80 +1,84 @@
 const Products = require('../models/productsModels');
 
-class Product {
+exports.crearProducto = async (req, res) => {
+    
+    try {
+        let product;
+        product = new product(req.body);
+        await product.save();
+        res.send(product);
 
-    async findAll(req, res, next) {
-        try {
-            return products =  await Products.find().lean();
-            res.status(201).json({
-                status: 'success',
-                data: {
-                    products
-                }
-            })
-        } catch (error) {
-            res.status(500).json({
-                status: 'fail',
-                errMenssage: error.message
-            })
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
+
+exports.obtenerProductos = async (req, res) => {
+
+    try {
+        const products = await products.find();
+        res.json(products)
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
+
+exports.actualizarProducto = async (req, res) => {
+    
+    try {
+        const { title, model, brand, price, description } = req.body;
+        let product = await product.findById(req.params.id);
+        if (!product) {
+            res.status(404).json({ msg: 'No existe el producto '})
         }
-    }
-    async create(req, res, next) {
-        try {
-            const productNew = new Products(req.body);
-            productNew.save();
 
-            res.status(201).json({
-                status: 'success',
-                data: {
-                    product: productNew
-                }
-            })
-        } catch (error) {
-            return res.status(500).json({
-                status: 'fail',
-                message: error.message
-            })
+        product.title = title;
+        product.model = model;
+        product.brand = brand;
+        product.price = price;
+        product.description = description;
+
+        product = await product.findOneAndUpdate({ _id: req.params.id },product, {new: true} )
+        res.json(product);
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');  
+    }
+}
+
+exports.obtenerProducto = async (req, res) => {
+    
+    try {
+        let product = await product.findById(req.params.id);
+        if (!product) {
+            res.status(404).json({ msg: 'No existe el producto '})
         }
-    }
-    async filter(options) {
-        // precio, categoria, modelo, marcas
-        // code......
-    }
-    async delete(req, res, next) {
-        const { id } = req.params
-        try {
-            const productDelet = await Products.deleteOne({_id: id});
-            
+        res.json(product);
 
-            res.status(200).json({
-                status: 'success',
-                message: 'se elimino exitosomente',
-                            })
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');  
+    }
+}
 
-            
-        } catch (error) {
-            return res.status(500).json({
-                status: 'fail',
-                message: error.message
-            })
+exports.deleteProduct = async (req, res) => {
+    
+    try {
+        let products = await products.findById(req.params.id);
+        if (!products) {
+            res.status(404).json({ msg: 'No existe el producto '})
         }
+        await products.findOneAndRemove({ _id: req.params.id })
+        res.json({ msg: 'Producto eliminado con exito'});
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');  
     }
-    async update(req, res, next) {
-        const { id } = req.params
-        try {
-            const productUpdate = await Products.findByIdAndUpdate(id);
-            res.status(201).json({
-                status: 'success',
-                message: 'se actualizo exitosamente'
-            })
-        } catch (error) {
-            return res.status(200).json({
-                status: 'fail',
-                message: error.message
-            })
-        }
-    }
-};
+}
 
 
-module.exports = new Product;
