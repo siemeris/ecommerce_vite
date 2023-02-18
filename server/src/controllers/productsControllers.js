@@ -65,10 +65,7 @@ class Product {
             const productUpdate = await Products.findByIdAndUpdate(id);
             res.status(201).json({
                 status: 'success',
-                message: 'se actualizo exitosomente',
-                data: {
-                    product: productUpdate
-                }
+                message: 'se actualizo exitosamente'
             })
         } catch (error) {
             return res.status(200).json({

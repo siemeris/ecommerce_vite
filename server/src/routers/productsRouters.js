@@ -12,8 +12,8 @@ const {
 const Product = require('../controllers/productsControllers')
 
 router.post('/register', validate(producRegisterBody), Product.create);
-router.put('/computadoras:id', Product.update);
-router.delete('/computadoras:id', Product.delete);
+router.put('/update:id', Product.update);
+router.delete('/delete:id', Product.delete);
 
 
 
