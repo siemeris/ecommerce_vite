@@ -28,12 +28,28 @@ const productsSchema = new Schema({
         required: true
     },
     photos: {
-      type: [String],
-      required: true
+        type: [String],
+        required: true
     },
     status: {
-      type: 'string',
-      default: 'active'
+        type: 'string',
+        default: 'active'
+    },
+    promocion: {
+        type: Boolean,
+        default: false
+    },
+    destacados: {
+        type: Number,
+        default: 0
+    },
+    blackFriday: {
+        type: Boolean,
+        default: false
+    },
+    descuento: {
+        type: Number,
+        default: 0
     }
 })
 

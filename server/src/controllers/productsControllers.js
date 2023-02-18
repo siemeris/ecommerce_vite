@@ -2,11 +2,20 @@ const Products = require('../models/productsModels');
 
 class Product {
 
-    async findAll() {
+    async findAll(req, res, next) {
         try {
-            return await Products.find().lean();
+            return products =  await Products.find().lean();
+            res.status(201).json({
+                status: 'success',
+                data: {
+                    products
+                }
+            })
         } catch (error) {
-            throw error
+            res.status(500).json({
+                status: 'fail',
+                errMenssage: error.message
+            })
         }
     }
     async create(req, res, next) {
@@ -31,18 +40,42 @@ class Product {
         // precio, categoria, modelo, marcas
         // code......
     }
-    async delete(id) {
+    async delete(req, res, next) {
+        const { id } = req.params
         try {
-            return await Products.findByIdAndDelete(id);
+            const productDelet = await Products.deleteOne({_id: id});
+            productDelet.save()
+
+            res.status(201).json({
+                status: 'success',
+                message: 'se elimino exitosomente',
+                            })
+
+            
         } catch (error) {
-            throw error
+            return res.status(200).json({
+                status: 'fail',
+                message: error.message
+            })
         }
     }
-    async update(id) {
+    async update(req, res, next) {
+        const { id } = req.params
         try {
-            return await Products.findByIdAndUpdate(id);
+            const productUpdate = await Products.findByIdAndUpdate(id);
+            productUpdate.save()
+            res.status(201).json({
+                status: 'success',
+                message: 'se actualizo exitosomente',
+                data: {
+                    product: productUpdate
+                }
+            })
         } catch (error) {
-            throw error
+            return res.status(200).json({
+                status: 'fail',
+                message: error.message
+            })
         }
     }
 };
