@@ -44,16 +44,16 @@ class Product {
         const { id } = req.params
         try {
             const productDelet = await Products.deleteOne({_id: id});
-            productDelet.save()
+            
 
-            res.status(201).json({
+            res.status(200).json({
                 status: 'success',
                 message: 'se elimino exitosomente',
                             })
 
             
         } catch (error) {
-            return res.status(200).json({
+            return res.status(500).json({
                 status: 'fail',
                 message: error.message
             })
@@ -63,7 +63,6 @@ class Product {
         const { id } = req.params
         try {
             const productUpdate = await Products.findByIdAndUpdate(id);
-            productUpdate.save()
             res.status(201).json({
                 status: 'success',
                 message: 'se actualizo exitosomente',
