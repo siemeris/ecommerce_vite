@@ -63,3 +63,17 @@ exports.loginSeller = tryCatch(async (req, res, next) => {
   })
 });
 
+exports.getSellerById = tryCatch(async (req, res, next) => { 
+  const seller = await Seller.findById(req.params.id);
+
+  if (!seller) {
+    return next(new AppError('Seller not found', 404));
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      seller
+    }
+  });
+});
