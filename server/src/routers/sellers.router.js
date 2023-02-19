@@ -13,3 +13,6 @@ const {
 
 const router = express.Router();
 
+
+// routers
+router.post('/register', registerSeller);
