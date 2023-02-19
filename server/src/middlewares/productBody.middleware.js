@@ -31,4 +31,21 @@ exports.producRegisterBody = [
     .withMessage('Las caracteristicas son requeridas')
     .isArray()
     .withMessage('Las caracteristicas deben ser un array'),
+  body('promocion')
+    .isBoolean()
+    .withMessage('La promocion debe ser un booleano'),
+  body('destacados')
+    .isNumeric()
+    .withMessage('Los destacados deben ser un numero')
+    .custom((value) => {
+      if (value < 0 || value > 100) {
+        throw new Error('Los destacados deben ser un numero entre 0 y 100')
+      }
+    }),
+  body('blackFriday')
+    .isBoolean()
+    .withMessage('El blackFriday debe ser un booleano'),
+  body('descuento')
+    .isNumeric()
+    .withMessage('El descuento debe ser un numero')
 ]
