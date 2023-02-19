@@ -77,3 +77,16 @@ exports.getSellerById = tryCatch(async (req, res, next) => {
     }
   });
 });
+
+exports.deleteSeller = tryCatch(async (req, res, next) => { 
+  const seller = await Seller.findByIdAndDelete(req.params.id);
+
+  if (!seller) {
+    return next(new AppError('Seller not found', 404));
+  }
+
+  return res.status(204).json({
+    status: 'success',
+    data: null
+  });
+});
