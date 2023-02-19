@@ -20,7 +20,7 @@ const router = express.Router();
 
 // routers
 router.post('/register', validate(sellerRegisterBody), registerSeller);
-router.post('/login', loginSeller);
+router.post('/login', validate(sellerLoginBody), loginSeller);
 router.get('/seller/:id', getSellerById);
 router.delete('/seller/delete/:id', deleteSeller);
 
