@@ -1,6 +1,7 @@
 // utils
 const AppError = require('../utils/AppError');
 const tryCatch = require('../utils/tryCatch');
+const { tokenSing } = require('../utils/generateToken');
 
 // bycript
 const bycript = require('bcryptjs');
@@ -22,7 +23,7 @@ exports.registerSeller = tryCatch(async (req, res, next) => {
   }
 
   seller.save();
-  
+
   seller.password = undefined;
 
   res.status(201).json({
@@ -32,3 +33,33 @@ exports.registerSeller = tryCatch(async (req, res, next) => {
     }
   });
 });
+
+exports.loginSeller = tryCatch(async (req, res, next) => { 
+  const { email, password } = req.body;
+
+  const seller = await Seller.findOne({ email });
+
+  if (!seller) {
+    return next(new AppError('Invalid email or password', 400));
+  }
+
+  // compare password
+  const isMatch = await bycript.compare(password, seller.password);
+
+  if (!isMatch) { 
+    return next(new AppError('Invalid email or password', 400));
+  };
+
+  // sign toke
+  const token = tokenSing({ id: seller._id, email });
+
+  return res.status(200).json({
+    status: 'success',
+    data: {
+      token,
+      seller
+    },
+    message: 'Login success'
+  })
+});
+
