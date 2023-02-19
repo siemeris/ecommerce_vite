@@ -10,3 +10,6 @@ const {
   getSellerById,
   deleteSeller
 } = require('../controllers/seller.controllers');
+
+const router = express.Router();
+
