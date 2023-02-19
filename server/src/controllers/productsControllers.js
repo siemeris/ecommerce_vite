@@ -66,18 +66,20 @@ exports.productoById = async (req, res) => {
 }
 
 exports.deleteProduct = async (req, res) => {
-    
+  const { id } = req.params;
     try {
-        let products = await Products.findById(req.params.id);
-        if (!products) {
-            res.status(404).json({ msg: 'No existe el producto '})
+     
+      const porductFind = await Products.findByIdAndDelete(id)
+
+        if (!porductFind) {
+            return res.status(404).json({ msg: 'No existe el producto '})
         }
-        await products.findOneAndRemove({ _id: req.params.id })
-        res.json({ msg: 'Producto eliminado con exito'});
+
+        return res.json({ msg: 'Producto eliminado con exito'});
 
     } catch (error) {
         console.log(error);
-        res.status(500).send('Hubo un error');  
+        return res.status(500).json({ msg: 'Hubo un error' });;  
     }
 }
 
