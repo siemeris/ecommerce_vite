@@ -55,13 +55,12 @@ exports.productoById = async (req, res) => {
     try {
         let product = await Products.findById(req.params.id);
         if (!product) {
-            res.status(404).json({ msg: 'No existe el producto '})
+            return res.status(404).json({ msg: 'No existe el producto '})
         }
-        res.json(product);
+        return res.json(product);
 
     } catch (error) {
-        console.log(error);
-        res.status(500).send('Hubo un error');  
+        res.status(500).json({ msg: 'Hubo un error' });;  
     }
 }
 
