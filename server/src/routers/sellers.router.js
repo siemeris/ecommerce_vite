@@ -2,6 +2,10 @@ const express = require('express');
 
 // middlewares
 const { validate } = require('../middlewares/body.middleware');
+const {
+  sellerRegisterBody,
+  sellerLoginBody,
+} = require('../middlewares/sellerBody.middleware')
 
 // controlers sellers
 const { 
@@ -15,7 +19,7 @@ const router = express.Router();
 
 
 // routers
-router.post('/register', registerSeller);
+router.post('/register', validate(sellerRegisterBody), registerSeller);
 router.post('/login', loginSeller);
 router.get('/seller/:id', getSellerById);
 router.delete('/seller/delete/:id', deleteSeller);
