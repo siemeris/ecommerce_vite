@@ -50,7 +50,7 @@ exports.actualizarProducto = async (req, res) => {
     }
 }
 
-exports.obtenerProducto = async (req, res) => {
+exports.productoById = async (req, res) => {
     
     try {
         let product = await Products.findById(req.params.id);
