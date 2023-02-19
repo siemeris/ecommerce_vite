@@ -41,3 +41,11 @@ exports.sellerRegisterBody = [
     .isString()
     .withMessage('Status is String'),
 ]
+
+exports.sellerLoginBody = [
+  body('email')
+    .notEmpty()
+    .withMessage('Email is required')
+    .isEmail()
+    .withMessage('Email is invalid'),
+]
