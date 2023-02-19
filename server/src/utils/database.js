@@ -13,7 +13,7 @@ const connectDB = async() => {
     // useCreateIndex: true,
     // useFindAndModify: false
 
-  }).then(() => {})
+  }).then((res) => console.log('Conectado a la base de datos'))
     .catch(err => console.log('ERRRO EN LA BASE DE DATOS >>>>> ', err));
 }
 

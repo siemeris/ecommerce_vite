@@ -38,6 +38,7 @@ exports.loginUser = tryCatch(async (req, res, next) => {
 });
 
 exports.registerUser = tryCatch(async (req, res, next) => {
+  console.log('crear user >_ ', req.body)
   const {
     name,
     lastName,

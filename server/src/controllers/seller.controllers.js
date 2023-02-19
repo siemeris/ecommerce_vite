@@ -4,7 +4,7 @@ const tryCatch = require('../utils/tryCatch');
 const { tokenSing } = require('../utils/generateToken');
 
 // bycript
-const bycript = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 // models
 const Seller = require('../models/sellerModels');
@@ -26,7 +26,7 @@ exports.registerSeller = tryCatch(async (req, res, next) => {
 
   seller.password = undefined;
 
-  res.status(201).json({
+   return res.status(201).json({
     status: 'success',
     data: {
       seller

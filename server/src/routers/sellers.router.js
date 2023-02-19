@@ -20,4 +20,4 @@ router.post('/login', loginSeller);
 router.get('/seller/:id', getSellerById);
 router.delete('/seller/delete/:id', deleteSeller);
 
-module.exports = { routerSeller: router }
+module.exports = { sellersRouter: router }
