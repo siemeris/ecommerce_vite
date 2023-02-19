@@ -4,7 +4,7 @@ exports.crearProducto = async (req, res) => {
     
     try {
         let product;
-        product = new product(req.body);
+        product = new Products(req.body);
         await product.save();
         res.send(product);
 
@@ -17,7 +17,7 @@ exports.crearProducto = async (req, res) => {
 exports.obtenerProductos = async (req, res) => {
 
     try {
-        const products = await products.find();
+        const products = await Products.find();
         res.json(products)
 
     } catch (error) {
@@ -30,7 +30,7 @@ exports.actualizarProducto = async (req, res) => {
     
     try {
         const { title, model, brand, price, description } = req.body;
-        let product = await product.findById(req.params.id);
+        let product = await Products.findById(req.params.id);
         if (!product) {
             res.status(404).json({ msg: 'No existe el producto '})
         }
@@ -53,7 +53,7 @@ exports.actualizarProducto = async (req, res) => {
 exports.obtenerProducto = async (req, res) => {
     
     try {
-        let product = await product.findById(req.params.id);
+        let product = await Products.findById(req.params.id);
         if (!product) {
             res.status(404).json({ msg: 'No existe el producto '})
         }
@@ -68,7 +68,7 @@ exports.obtenerProducto = async (req, res) => {
 exports.deleteProduct = async (req, res) => {
     
     try {
-        let products = await products.findById(req.params.id);
+        let products = await Products.findById(req.params.id);
         if (!products) {
             res.status(404).json({ msg: 'No existe el producto '})
         }
