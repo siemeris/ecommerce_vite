@@ -10,7 +10,10 @@ const validate = validations => {
 
     const errors = validationResult(req);
 
-    if (errors.isEmpty()) return next();
+    if (errors.isEmpty()) {
+      console.log('No errors: ', errors.array());
+      return next();
+    };
 
     return next(new AppError(errors.array(), 400));
   };

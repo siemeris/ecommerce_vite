@@ -78,8 +78,6 @@ exports.registerUser = tryCatch(async (req, res, next) => {
 
   user.save()
 
-  user.password = undefined;
-
   return res.status(200).json({
     code: 200,
     status: 'success',
