@@ -1,7 +1,7 @@
 const Products = require('../models/productsModels');
 
 
-exports.crearProducto = async (req, res, next) => {
+exports.crearProductos = async (req, res, next) => {
     
     try {
         Products = new Products(req.body);
@@ -35,11 +35,8 @@ exports.actualizarProducto = async (req, res, next) => {
             res.status(404).json({ msg: 'No existe el producto '})
         }
 
-        product.title = title;
-        product.model = model;
-        product.brand = brand;
-        product.price = price;
-        product.description = description;
+        await product.updateOne({ $set: req.body });
+        product.save();
 
         Products = await Products.findOneAndUpdate({ _id: req.params.id },product, {new: true} )
         res.json(Products);
@@ -57,11 +54,10 @@ exports.obtenerProducto = async (req, res, next) => {
         if (!Products) {
             res.status(404).json({ msg: 'No existe el producto '})
         }
-        res.json(product);
+        return res.json(product);
 
     } catch (error) {
-        console.log(error);
-        res.status(500).send('Hubo un error');  
+        res.status(500).json({ msg: 'Hubo un error' });;  
     }
 }
 
@@ -77,7 +73,7 @@ exports.deleteProduct = async (req, res, next) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).send('Hubo un error');  
+        return res.status(500).json({ msg: 'Hubo un error' });;  
     }
 }
 
