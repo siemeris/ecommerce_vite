@@ -4,8 +4,8 @@ const Products = require('../models/productsModels');
 exports.crearProductos = async (req, res, next) => {
     
     try {
-        Products = new Products(req.body);
-        await Products.save();
+        const product = new Products(req.body);
+        await product.save();
         res.send(Products);
 
     } catch (error) {
