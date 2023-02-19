@@ -26,23 +26,26 @@ exports.obtenerProductos = async (req, res) => {
     }
 }
 
-exports.actualizarProducto = async (req, res) => {
+exports.updateProductoById = async (req, res) => {
     
     try {
-        const { title, model, brand, price, description } = req.body;
-        let product = await Products.findById(req.params.id);
+
+        const product = await Products.findById(req.params.id);
+    
         if (!product) {
-            res.status(404).json({ msg: 'No existe el producto '})
+            return es.status(404).json({ msg: 'No existe el producto '})
         }
 
-        product.title = title;
-        product.model = model;
-        product.brand = brand;
-        product.price = price;
-        product.description = description;
-
-        product = await product.findOneAndUpdate({ _id: req.params.id },product, {new: true} )
-        res.json(product);
+        await product.updateOne({ $set: req.body });
+        product.save();
+        
+        return res.status(200).json({
+            status: 'success',
+            data: {
+                product: product,
+                message: 'Producto actualizado correctamente'
+            }
+        });
 
     } catch (error) {
         console.log(error);
