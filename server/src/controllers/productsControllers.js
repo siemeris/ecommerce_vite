@@ -38,7 +38,7 @@ exports.updateProductoById = async (req, res) => {
 
         await product.updateOne({ $set: req.body });
         product.save();
-        
+
         return res.status(200).json({
             status: 'success',
             data: {
@@ -56,7 +56,7 @@ exports.updateProductoById = async (req, res) => {
 exports.productoById = async (req, res) => {
     
     try {
-        let product = await Products.findById(req.params.id);
+        const product = await Products.findById(req.params.id);
         if (!product) {
             return res.status(404).json({ msg: 'No existe el producto '})
         }
