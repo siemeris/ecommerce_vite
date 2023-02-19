@@ -19,5 +19,25 @@ exports.sellerRegisterBody = [
         return AppError('seller already exist', 400)
       }
       return true
-    })
+    }),
+  body('password')
+    .notEmpty()
+    .withMessage('Password is required')
+    .isStrongPassword()
+    .withMessage('Password is weak'),
+  body('passowrdConfirm')
+    .notEmpty()
+    .withMessage('Password confirm is required')
+    .custom((value, { req }) => {
+      if (value !== req.body.password) {
+        return AppError('password confirm is not match', 400)
+      }
+      return true
+    }),
+  body('role')
+    .isString()
+    .withMessage('Roles is String'),
+  body('status')
+    .isString()
+    .withMessage('Status is String'),
 ]
