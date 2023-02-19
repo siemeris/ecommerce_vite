@@ -9,12 +9,18 @@ const {
   validate
 } = require('../middlewares/body.middleware')
 
-const Product = require('../controllers/productsControllers')
+const {
+  actualizarProducto,
+  crearProducto,
+  obtenerProductos,
+  updateProductoById,
+  deleteProduct
+} = require('../controllers/productsControllers')
 
 
-router.post('/register', validate(producRegisterBody), Product.crearProducto);
-router.put('/update/:id', Product.actualizarProducto);
-router.delete('/delete/:id', Product.deleteProduct);
+router.post('/register', validate(producRegisterBody), crearProducto);
+router.put('/update/:id', updateProductoById);
+router.delete('/delete/:id', deleteProduct);
 
 
 
