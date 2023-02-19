@@ -20,5 +20,9 @@ app.use(express.urlencoded({extended: true}))
 app.use('/api/v1/users', require('./routers/user.router').userRouter)
 // productos/api/v1/products
 app.use('/api/v1/products', require('./routers/productsRouters').productRouter)
+
+// Seller
+app.use('/api/v1/sellers', require('./routers/sellerRouter').sellersRouter)
+
 app.use(globalError)
 module.exports = app
