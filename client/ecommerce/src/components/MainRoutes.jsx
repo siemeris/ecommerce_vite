@@ -8,7 +8,7 @@ import ItemDetail from './ItemDetail'
 import ListaDeProductos from './ListaDeProductos'
 import Login from './Login'
 import Perfil from './Perfil'
-
+import PedidoState from './PedidoState'
 
 
 
@@ -23,6 +23,7 @@ const MainRoutes = () => {
           <Route path='/misCompras' element={<Compras />} />
           <Route path='/misCompras/:idCompra' element={<ComprasDetalle />} />
           <Route path='/checkout' element={<CheckOut />} />
+          <Route path='/state' element={<PedidoState />} />
           {/* Con esta ruta, se filtrarian celulares, tablets, compus, lo que sea */}
           <Route path='/productos/:categoriaProductos' element={<ListaDeProductos />}/>
           <Route path='/productos/itemdetail' element={<ItemDetail />}/>

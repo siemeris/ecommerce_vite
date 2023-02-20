@@ -87,7 +87,7 @@ const ComprasDetalle = () => {
             </div>
 
             <div className="flex flex-row justify-center py-4">
-                <Link to="/pedidosState" >
+                <Link to="/state" >
                 <button className="flex bg-blue-400 rounded-md text-white uppercase font-semibold text-sm p-2 hover:cursor-pointer mb-8" >Seguir pedido</button>
                 </Link>
             </div>

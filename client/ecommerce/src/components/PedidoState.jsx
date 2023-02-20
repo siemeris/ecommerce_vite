@@ -116,12 +116,3 @@ const PedidoState = () => {
 }
 
 export default PedidoState
-
-       {/* {pedidoStep === 3 &&
-                    <div className='flex w-full gap-3 leading-4 items-center'>
-                    <svg className='w-7 h-7' viewBox="0 0 32 33" fill="none"><rect y="0.5" width="32" height="32" rx="16" fill="#7B56D3"/><path fill-rule="evenodd" clip-rule="evenodd" d="M22.7074 11.7928C22.8949 11.9803 23.0002 12.2346 23.0002 12.4998C23.0002 12.765 22.8949 13.0193 22.7074 13.2068L14.7074 21.2068C14.5199 21.3943 14.2656 21.4996 14.0004 21.4996C13.7352 21.4996 13.4809 21.3943 13.2934 21.2068L9.29341 17.2068C9.11125 17.0182 9.01045 16.7656 9.01273 16.5034C9.01501 16.2412 9.12018 15.9904 9.30559 15.805C9.491 15.6196 9.74181 15.5144 10.004 15.5121C10.2662 15.5098 10.5188 15.6106 10.7074 15.7928L14.0004 19.0858L21.2934 11.7928C21.4809 11.6053 21.7352 11.5 22.0004 11.5C22.2656 11.5 22.5199 11.6053 22.7074 11.7928Z" fill="#F9FAFB"/></svg>
-                    <div>
-                        <h4 className='text-gray-400 font-bold text-sm'>En camino</h4>
-                        <p className='text-gray-400 text-xs'></p>
-                    </div>
-                </div> */}
