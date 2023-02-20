@@ -14,8 +14,7 @@ function App() {
       {/* Aca van los providers */}
       <BrowserRouter>
         <Header/>
-          {/* <MainRoutes /> */}
-          <PedidoState/>
+          <MainRoutes />
         <Footer />
       </BrowserRouter>
     </div>
