@@ -13,6 +13,13 @@ const Home = () => {
         <CardPromociones />
         <CardPromociones />
         <CardPromociones />
+        <CardPromociones />
+        <CardPromociones />
+        <CardPromociones />
+        <CardPromociones />
+        <CardPromociones />
+        <CardPromociones />
+        <CardPromociones />
       </div>
       <p className="text-sm font-medium leading-4 ml-4 my-8">DESTACADOS</p>
       <div className="flex flex-col md:flex-row">
