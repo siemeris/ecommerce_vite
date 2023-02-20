@@ -2,14 +2,18 @@ import { createContext, useContext, useState } from "react"
 
 
 
-const CarritoContext = createContext()
-export const useCarrito = () => useContext(CarritoContext)
+const AppContext = createContext()
+export const useCompra = () => useContext(AppContext)
 
 
 
-const CarritoProvider = ({children}) => {
+const AppProvider = ({children}) => {
 
     
+    const consola = () => {
+        console.log("Desde provider")
+    }
+
     const agregarProducto = (producto) => {
         setItemsCarrito( [...itemsCarrito, producto])
     }
@@ -23,18 +27,19 @@ const CarritoProvider = ({children}) => {
   return (
     
     <>
-        <CarritoContext.Provider
+        <AppContext.Provider
             value={{
                 agregarProducto,
                 eliminarProducto, 
-                limpiarCarrito
+                limpiarCarrito,
+                consola
             }}
         >
             {children}
 
-        </CarritoContext.Provider>
+        </AppContext.Provider>
     </>
   )
 }
 
-export default CarritoProvider
+export default AppProvider
