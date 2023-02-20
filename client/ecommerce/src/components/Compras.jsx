@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Compras = () => {
     return (
@@ -7,17 +8,18 @@ const Compras = () => {
 
                 <p className='text-sm ml-7 text-gray-400 hover:cursor-pointer '>Home</p>
                 <div className='my-auto'>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                     </svg> </div>
                 <p className='text-sm text-gray-800 hover:cursor-pointer '>Mis compras</p>
             </div>
 
+            <Link to="/comprasDetalle">
             <div className='max-w-xl w-11/12 py-2 px-4 border-blue-400 border-4 mx-auto rounded-md my-4'>
                 <div className="flex justify-between">
                     <p className="text-sm">Fecha de compra: 24 de marzo 2023</p>
                     <div className="h-8 w-8">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><g data-name="Layer 2" fill="#595bd4" className="color000000 svgShape"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm4.3 7.61-4.57 6a1 1 0 0 1-.79.39 1 1 0 0 1-.79-.38l-2.44-3.11a1 1 0 0 1 1.58-1.23l1.63 2.08 3.78-5a1 1 0 1 1 1.6 1.22z" data-name="checkmark-circle-2" fill="#595bd4" class="color000000 svgShape"></path></g></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><g data-name="Layer 2" fill="#595bd4" className="color000000 svgShape"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm4.3 7.61-4.57 6a1 1 0 0 1-.79.39 1 1 0 0 1-.79-.38l-2.44-3.11a1 1 0 0 1 1.58-1.23l1.63 2.08 3.78-5a1 1 0 1 1 1.6 1.22z" data-name="checkmark-circle-2" fill="#595bd4" className="color000000 svgShape"></path></g></svg>
                     </div>
                 </div>
                 <p className="text-sm text-gray-600"> Nº de pedido: 5012364785</p>
@@ -43,12 +45,14 @@ const Compras = () => {
                     </div>
                 </div>
             </div>
+            </Link>
 
+            <Link to="/comprasDetalle">
             <div className='max-w-xl w-11/12 py-2 px-4 border-gray-400 border-4 m-auto rounded-md mb-5'>
                 <div className="flex justify-between">
                     <p className="text-sm">Fecha de compra: 24 de marzo 2023</p>
                     <div className="h-8 w-8">
-                        <svg id="SvgjsSvg1011" width="26" height="26" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"><defs id="SvgjsDefs1012"></defs><g id="SvgjsG1013"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path fill-rule="evenodd" d="M13 0A13 13 0 0 0 0 13a13 13 0 0 0 13 13 13 13 0 0 0 13-13A13 13 0 0 0 13 0zm-2.3 8 5.3 5-5.3 5-.7-.66L14.6 13 10 8.66l.7-.66z" fill="#d9d9d9" class="color000 svgShape"></path></svg></g></svg>
+                        <svg id="SvgjsSvg1011" width="26" height="26" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"><defs id="SvgjsDefs1012"></defs><g id="SvgjsG1013"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path fillRule="evenodd" d="M13 0A13 13 0 0 0 0 13a13 13 0 0 0 13 13 13 13 0 0 0 13-13A13 13 0 0 0 13 0zm-2.3 8 5.3 5-5.3 5-.7-.66L14.6 13 10 8.66l.7-.66z" fill="#d9d9d9" className="color000 svgShape"></path></svg></g></svg>
                     </div>
                 </div>
                 <p className="text-sm text-gray-600"> Nº de pedido: 5012364785</p>
@@ -73,7 +77,7 @@ const Compras = () => {
                     </div>
                 </div>
             </div>
-
+            </Link>
 
         </div>
     )
