@@ -79,8 +79,8 @@ const ComprasDetalle = () => {
 
                     </div>
                     <div class="w-full flex justify-between items-center py-5 border-b border-gray-800 border-dotted">
-                        <p class="font-sm font-semiboldtext-lg">Total</p>
-                        <p class="font-sm font-semiboldtext-lg">$200</p>
+                        <p class="font-sm font-semibold">TOTAL</p>
+                        <p class="font-sm font-semibold">$200</p>
                     </div>
                 </div>
 
@@ -89,9 +89,7 @@ const ComprasDetalle = () => {
             <div className="flex flex-row justify-center py-4">
                 <button className="flex bg-blue-400 rounded-md text-white uppercase font-semibold text-sm p-2 hover:cursor-pointer mb-8" >Seguir pedido</button>
                 {/* <a class="mb-4 text-xs text-center hover:cursor-pointer m-auto w-2/3 bg-indigo-700 hover:bg-indigo-800 uppercase text-white rounded-md py-2 px-4" href="/checkout">Finalizar compra</a> */}
-
             </div>
-
         </div>
     )
 }
