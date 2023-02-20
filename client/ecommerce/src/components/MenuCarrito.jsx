@@ -20,7 +20,7 @@ const MenuCarrito = ({ setMenuCarritoVisible, menuCarritoVisible }) => {
         {/* Contenedor de toda la lista de productos del carrito */}
           <div className="w-full overflow min-h-screen absolute z-50 bg-white">
         {/* Producto */}
-            <div className="flex border-b border-gray-300 pb-3">
+            <div className="flex border-b border-gray-300 pb-5">
             
               <img className="object-contain w-1/3" src="../public/img/parlante.png" alt=""/>
               <div className="w-2/3 p-5">
