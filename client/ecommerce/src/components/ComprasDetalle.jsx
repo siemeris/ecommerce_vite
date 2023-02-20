@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const ComprasDetalle = () => {
     const { idCompra } = useParams()
@@ -87,8 +87,9 @@ const ComprasDetalle = () => {
             </div>
 
             <div className="flex flex-row justify-center py-4">
+                <Link to="/pedidosState" >
                 <button className="flex bg-blue-400 rounded-md text-white uppercase font-semibold text-sm p-2 hover:cursor-pointer mb-8" >Seguir pedido</button>
-                {/* <a class="mb-4 text-xs text-center hover:cursor-pointer m-auto w-2/3 bg-indigo-700 hover:bg-indigo-800 uppercase text-white rounded-md py-2 px-4" href="/checkout">Finalizar compra</a> */}
+                </Link>
             </div>
         </div>
     )
