@@ -14,7 +14,7 @@ const Compras = () => {
                 <p className='text-sm text-gray-800 hover:cursor-pointer '>Mis compras</p>
             </div>
 
-            <Link to="/comprasDetalle">
+            <Link to="/misCompras/1">
             <div className='max-w-xl w-11/12 py-2 px-4 border-blue-400 border-4 mx-auto rounded-md my-4'>
                 <div className="flex justify-between">
                     <p className="text-sm">Fecha de compra: 24 de marzo 2023</p>
@@ -47,7 +47,7 @@ const Compras = () => {
             </div>
             </Link>
 
-            <Link to="/comprasDetalle">
+            <Link to="/misCompras/2">
             <div className='max-w-xl w-11/12 py-2 px-4 border-gray-400 border-4 m-auto rounded-md mb-5'>
                 <div className="flex justify-between">
                     <p className="text-sm">Fecha de compra: 24 de marzo 2023</p>
