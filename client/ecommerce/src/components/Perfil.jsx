@@ -79,14 +79,13 @@ const Perfil = () => {
                         <div className="my-auto">
                             <p className="text-sm">Suscripción</p>
                         </div>
-                        <div className='my-auto'>                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                        </svg> </div>
-                    </div>
+                        <div className='my-auto'>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg> </div>
+                        </div>
 
                 </div>
 
-                <button className='w-full rounded-md bg-white text-red-400 border border-red-400 font-semibold text-sm py-2 hover:cursor-pointer mb-8'>Cerrar sesión</button>
+                <button className='w-full rounded-md bg-white text-violet-700 border border-violet-700 font-semibold text-sm py-2 hover:cursor-pointer mb-8'>Cerrar sesión</button>
             </div>
         </div>
     )
