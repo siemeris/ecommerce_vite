@@ -8,7 +8,7 @@ const CardDestacados = () => {
                 <div className="flex flex-col justify-start w-full ml-2">
                     <h5 className="text-gray-900 text-2xl font-bold pt-6 mb-2 w-44 leading-7">Mouse Logitech</h5>
 
-                    <div className="flex justify-between w-full">
+                    <div className="flex justify-between w-full mb-2 pr-2">
                         <p className="text-gray-700 text-base my-auto">
                              Bluetooth M350 Rose
                         </p>
