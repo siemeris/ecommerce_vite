@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import CardDestacados from './CardDestacados';
 import CardOfertas from './CardOfertas';
+import CardProductos from './CardProductos';
 import CardPromociones from './CardPromociones';
 
 
@@ -47,10 +48,10 @@ const ListaDeProductos = () => {
         </div>
         <p className="text-sm font-medium leading-4 ml-4 my-8">PRODUCTOS</p>
         <div className="flex flex-col">
-          <CardDestacados />
-          <CardDestacados />
-          <CardDestacados />
-          <CardDestacados />
+          <CardProductos />
+          <CardProductos />
+          <CardProductos />
+          <CardProductos />
         </div>
 
       </div>
