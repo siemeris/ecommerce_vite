@@ -1,0 +1,24 @@
+{
+  "name": "c9-52-t-mern",
+  "version": "1.0.0",
+  "description": "E-commerce de productos de tecnología",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently --kill-others \"cd server & npm start\" \"cd client/ecommerce & npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/No-Country/C9-52-t-mern.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/No-Country/C9-52-t-mern/issues"
+  },
+  "homepage": "https://github.com/No-Country/C9-52-t-mern#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
