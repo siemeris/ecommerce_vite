@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Compras = () => {
     return (
-        <div>
+        <div className='mt-5'>
             <div className='flex flex-row justify-start space-x-4'>
 
                 <p className='text-sm ml-7 text-gray-400 hover:cursor-pointer '>Home</p>

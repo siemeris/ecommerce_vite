@@ -8,7 +8,7 @@ const ItemDetail = () => {
         <div className="w-11/12 m-auto">
 
             {/* Imagen container */}
-            <div className='shadow-lg rounded-md'>
+            <div className='shadow-lg rounded-md mt-5'>
                 <div className="flex justify-between items-center">
                     <svg className="w-6 h-6 text-gray-400 hover:text-red-400 hover:cursor-pointer" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" /></svg>
                     <h4 className='text-2xl font-semibold text-gray-400 text-center'>Logitech</h4>
@@ -55,8 +55,8 @@ const ItemDetail = () => {
 
             {/* Botones */}
             <div className='flex justify-center gap-3 mt-10' > 
-                <button className='rounded-xl text-xs py-2 px-3 w-1/3 bg-blue-700 hover:bg-blue-600 text-white '>Comprar</button>
-                <button className='rounded-xl text-xs py-2 px-3 w-1/3 bg-blue-700 hover:bg-blue-600 text-white '>Agregar al carrito</button>
+                <button className='rounded-xl text-xs py-2 px-3 w-1/3 bg-violet-700 hover:bg-violet-600 text-white '>Comprar</button>
+                <button className='rounded-xl text-xs py-2 px-3 w-1/3 bg-violet-700 hover:bg-violet-600 text-white '>Agregar al carrito</button>
             </div>
             
             {/* Especificaciones */}
@@ -64,7 +64,7 @@ const ItemDetail = () => {
                 {/* Titulos */}
                 <div className="flex justify-between border-gray-300 border-b">
                     <p className='hover:cursor-pointer 1/3'>Descripcion</p>
-                    <p className='hover:cursor-pointer 1/3 pb-4 text-blue-700 border-blue-700 border-b-2'>Caracteristicas</p>
+                    <p className='hover:cursor-pointer 1/3 pb-4 text-violet-700 border-violet-700 border-b-2'>Caracteristicas</p>
                     <p className='hover:cursor-pointer 1/3'>Reseñas</p>
                 </div>
                 {/* Tabla */}

@@ -29,7 +29,7 @@ const CheckOut = () => {
             {/* Carrito lista de productos */}
             <div className='w-full '>
               {/* Header de la lista */}
-              <div className="w-full container bg-gray-300 flex m-auto justify-around text-sm">
+              <div className="w-full container bg-gray-200 flex m-auto justify-around text-sm">
                 <h3 className='py-3 w-1/2 m-auto text-center  text-blue-800 font-semibold border-b border-blue-800'>
                     {step === 1 && "Carrito(2)"}
                     {step === 2 && "Envios a domicilio"}
@@ -64,10 +64,10 @@ const CheckOut = () => {
                   </div>
               </div>
               {/* Garantia */}
-              <div className='container m-auto w-11/12 flex justify-around bg-gray-200 rounded-sm py-2 mb-5 items-center'>
+              <div className='container m-auto w-11/12 flex justify-around bg-gray-400 rounded-sm py-2 mb-10 items-center'>
                 <svg  className="w-6 h-6 m-0" fill="none" viewBox="0 0 24 24" strokWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 <p className='text-sm font-medium'>Garantia por 12 meses</p>
-                <p className='text-sm font-medium text-blue-500 underline'>+ Agregar Tiempo</p>
+                <p className='hover: cursor-pointer text-sm font-medium text-white'>+ Agregar Tiempo</p>
               </div>
               </>
               }
@@ -85,22 +85,22 @@ const CheckOut = () => {
                       {/* Input */}
                       <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="name">Nombre: </label>
-                        <input className='bg-gray-300 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='name' placeholder='Ingresa tu nombre' />
+                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='name' placeholder='Ingresa tu nombre' />
                       </div>
                        {/* Input */}
                        <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="lastname">Apellido: </label>
-                        <input className='bg-gray-300 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='lastname' placeholder='Ingresa tu apellido' />
+                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='lastname' placeholder='Ingresa tu apellido' />
                       </div>
                        {/* Input */}
                        <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="dni">DNI: </label>
-                        <input className='bg-gray-300 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu DNI' />
+                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu DNI' />
                       </div>
                       {/* Input */}
                       <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="dni">Telefono: </label>
-                        <input className='bg-gray-300 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu Telefono' />
+                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu Telefono' />
                       </div>
 
                       <p className='text-xsm text-gray-600'>Esta información será exclusivamente utilizada para el envío</p>
@@ -114,17 +114,17 @@ const CheckOut = () => {
                       {/* Input */}
                       <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="name">Dirección ( calle y número ) </label>
-                        <input className='bg-gray-300 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='name' placeholder='Ingresa tu dirección' />
+                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='name' placeholder='Ingresa tu dirección' />
                       </div>
                        {/* Input */}
                        <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="lastname">Piso / Departamento: </label>
-                        <input className='bg-gray-300 rounded-md border-0 py-1 px-3 text-sm placeholder:text-sm placeholder:text-gray-800' type="text" id='lastname' placeholder='Ingresa tu piso / departamento' />
+                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 text-sm placeholder:text-sm placeholder:text-gray-800' type="text" id='lastname' placeholder='Ingresa tu piso / departamento' />
                       </div>
                        {/* Input */}
                        <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="dni">Provincia: </label>
-                        <select className='bg-gray-300 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu provincia'>
+                        <select className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu provincia'>
                           <option value="buenosaires">Buenos Aires</option>  
                           <option value="catamarca">Catamarca</option>
                           <option value="cordoba">Córdoba</option>
@@ -133,14 +133,14 @@ const CheckOut = () => {
                         {/* Input */}
                        <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="lastname">Codigo postal: </label>
-                        <input className='bg-gray-300 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='lastname' placeholder='Ingresa tu código' />
+                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='lastname' placeholder='Ingresa tu código' />
                       </div>
                         
                       </div>
                       {/* Input */}
                       <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="dni">Telefono: </label>
-                        <input className='bg-gray-300 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu Telefono' />
+                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu Telefono' />
                       </div>
 
                       <p className='text-xsm text-gray-600'>Esta información será exclusivamente utilizada para el envío</p>
@@ -210,23 +210,23 @@ const CheckOut = () => {
                       {/* Input */}
                       <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="name">Nombre del titular: </label>
-                        <input className='bg-gray-300 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='name' placeholder='Ingresa nombre' />
+                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='name' placeholder='Ingresa nombre' />
                       </div>
                        {/* Input */}
                        <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="lastname">Numero de tarjeta: </label>
-                        <input className='bg-gray-300 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='lastname' placeholder='0000 0000 0000 0000' />
+                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='lastname' placeholder='0000 0000 0000 0000' />
                       </div>
                        <div className='flex w-full justify-between'>
                        {/* Input */}
                            <div className='flex flex-col w-5/12 gap-1 mb-3'>
                             <label className='text-sm font-semibold text-gray-800' htmlFor="dni">CVC/CVV </label>
-                            <input className='bg-gray-300 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='***' />
+                            <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='***' />
                           </div>
                           {/* Input */}
                           <div className='flex flex-col w-5/12 gap-1 mb-3'>
                             <label className='text-sm font-semibold text-gray-800' htmlFor="dni">Vencimiento * </label>
-                            <input className='bg-gray-300 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='MM/YY' />
+                            <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='MM/YY' />
                       </div>
                       </div>
                     </div>
@@ -238,15 +238,15 @@ const CheckOut = () => {
 
               {/* Resumen de la compra */}
               {step <= 3 ?
-                <div className='w-full bg-gray-300 py-5'>
+                <div className='w-full bg-gray-200 py-7'>
                 <div className='container w-11/12 m-auto'>
-                  <h3 className='font-bold text-center text-gray-800 mb-5'>Resumen de la compra</h3>
-                  <div className='w-9/12 flex justify-between border-b border-gray-500'>
+                  <h3 className='font-bold text-xl text-center text-gray-800 mb-5'>Resumen de la compra</h3>
+                  <div className='w-9/12 flex justify-between pb-3 border-b border-gray-500'>
                     <p className='text-grey-800 text-sm font-semibold text-gray-800'>Tengo código de descuento</p>
                     <svg className=' my-auto w-5 h-5 hover:cursor-pointer hover:text-red-600' onClick={() => setMostrarCodigo(!mostrarCodigo)}fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
                   </div>
                   {mostrarCodigo && 
-                    <input type="text" className='border-b border-gray-800 inline-block bg-gray-300' />
+                    <input type="text" className='border-b border-gray-800 inline-block bg-gray-200' />
                   }
 
                   {/* Lista del carrito */}
@@ -278,13 +278,13 @@ const CheckOut = () => {
                   {
                     step <= 2 
                       &&
-                      <button className='w-full rounded-md bg-red-400 text-white uppercase font-semibold text-sm py-2 hover:cursor-pointer'
+                      <button className='w-full rounded-sm bg-violet-700 text-white uppercase font-semibold text-sm py-3 hover:cursor-pointer'
                       onClick={() => setStep( step + 1)}>Continuar</button>
                   }
                   {
                     step === 3
                       &&
-                    <button className='w-full rounded-md bg-blue-400 text-white uppercase font-semibold text-sm py-2 hover:cursor-pointer'
+                    <button className='w-full rounded-md bg-violet-700 text-white uppercase font-semibold text-sm py-2 hover:cursor-pointer'
                       onClick={() => setStep( step + 1)}>Finalizar compra</button>
                   }
 
@@ -292,25 +292,30 @@ const CheckOut = () => {
                 </div>
               </div>
               : 
-                  <div className='h-screen bg-green-200 w-full py-10 m-auto'>
+              
+              <div className='h-screen bg-white-200 w-full py-10 m-auto relative'>
+                    <img src="./public/img/circulo.png" alt="" className='absolute -mt-10 w-full m-auto'/>
+                    {/* <div className='h-48 w-48 rounded-full bg-green-200 absolute z-0 -mt-16 '></div> */}
 
                       
-                      <svg className="w-20 h-20 m-auto" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" ><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                      <p className='w-9/12 m-auto text-gray-800 text-center text-3xl mb-5 '>¡Transacción exitosa!</p>
+                  <div className='z-20 absolute w-full m-auto'>
+                     
+                      <svg className="w-20 h-20 m-auto text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" ><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+
+                      <p className='w-9/12 m-auto text-white font-bold text-center text-xl mb-5 '>¡Transacción exitosa!</p>
+                  
                       <div className='rounded-md bg-white text-center w-9/12 m-auto p-5 shadow-md'>
-                        <p className='text-gray-400 font-semibold' >Te avisaremos cuando tus productos estén en camino</p>
-                        <p className='text-gray-400 mb-5'>N° de operación: 5012364785</p>
+                        <p className='text-sm text-gray-800 mb-3' >Te avisaremos cuando tus productos estén en camino</p>
+                        <p className='text-xs text-gray-300 mb-5'>N° de operación: 5012364785</p>
 
                         <div className='flex flex-col w-11/12 m-auto items-center gap-3'>
-                          <button className='hover:cursor-pointer w-2/3 shadow-md text-white bg-blue-700 text-sm p-2 rounded-md' onClick={() => setStep( 1 )}>Seguir comprando</button>
-                          <button className='hover:cursor-pointer w-2/3 shadow-md text-blue-700 border-2 rounded-md p-2 border-blue-700 '>Ir a mis compras</button>
-
+                          <button className='hover:cursor-pointer w-2/3 shadow-md text-white bg-violet-700 hover:bg-violet-800 text-xs p-2 rounded-md' onClick={() => setStep( 1 )}>Seguir comprando</button>
+                          <button className='hover:cursor-pointer w-2/3 shadow-md text-violet-700  border-2 text-xs rounded-md p-2 border-violet-700 hover:border-violet-400 '>Ir a mis compras</button>
                         </div>
                       </div>
 
                   </div>
-
-
+              </div>
               }
               
 
