@@ -294,7 +294,7 @@ const CheckOut = () => {
               : 
               
               <div className='h-screen bg-white-200 w-full py-10 m-auto relative'>
-                    <img src="../public/img/circulo.png" alt="" className='absolute -mt-10 w-full m-auto'/>
+                    <img src="./public/img/circulo.png" alt="" className='absolute -mt-10 w-full m-auto'/>
                     {/* <div className='h-48 w-48 rounded-full bg-green-200 absolute z-0 -mt-16 '></div> */}
 
                       
