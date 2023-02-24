@@ -1,11 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react'
 import CardPromociones from './CardPromociones'
 import CardDestacados from './CardDestacados'
 import CardOfertas from './CardOfertas'
 
 
 const Home = () => {
-  
+  const Products = () => {
+    const [datos, setDatos] = useState([]);
+    
+    //api de mi data
+    
+    const DATOS = 'https://nocountry-production.up.railway.app/api/v1/products/allproducts';
+    
+    //Creamos una función para el useEffect
+    
+    useEffect(() => {
+        const getProducts = async () => {
+            try {
+                const { data } = await axios.get(DATOS);
+                setDatos(data.datos)
+                console.log(data.datos);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    
+        getProducts()
+    }, []);
+
+
   return (
     <div className='w-11/12 m-auto'>
       <p className="font-bold leading-4 ml-4 my-8">PROMOCIONES</p>
@@ -35,6 +58,8 @@ const Home = () => {
       </div>
     </div>
   )
-}
+}}
+
+
 
 export default Home
