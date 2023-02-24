@@ -1,9 +1,13 @@
 const express  = require('express')
 
+const cors = require('cors')
+
 // globalError
 const globalError = require('./utils/globalError')
 
 const app = express()
+
+app.use(cors())
 
 
 // configuracion para la aceptacion de res JSON
