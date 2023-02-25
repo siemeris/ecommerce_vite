@@ -9,10 +9,8 @@ export const useCompra = () => useContext(AppContext)
 
 const AppProvider = ({children}) => {
 
+    const [itemsCarrito, setItemsCarrito] = useState([])
     
-    const consola = () => {
-        console.log("Desde provider")
-    }
 
     const agregarProducto = (producto) => {
         setItemsCarrito( [...itemsCarrito, producto])
@@ -32,7 +30,8 @@ const AppProvider = ({children}) => {
                 agregarProducto,
                 eliminarProducto, 
                 limpiarCarrito,
-                consola
+                itemsCarrito
+                
             }}
         >
             {children}
