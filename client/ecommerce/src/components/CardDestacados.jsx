@@ -11,7 +11,7 @@ const CardDestacados = ({producto}) => {
                 <img className="w-24 h-auto object-cover rounded-l-lg" src={photos[0]} alt="" />
                 
                 <div className="flex flex-col justify-start w-full py-4 ml-4">
-                    <h5 className="text-gray-900 text-2xl font-bold mb-2 w-full leading-7">{title}</h5>
+                    <h5 className="text-gray-900 text-2xl font-bold mb-2 w-full leading-7 pr-1">{title}</h5>
 
                     <div className="flex justify-between w-full h-full my-auto">
                         <p className="text-gray-700 text-base my-auto ">
