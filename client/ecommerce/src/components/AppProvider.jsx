@@ -17,20 +17,12 @@ const AppProvider = ({ children }) => {
     
 
     const agregarProducto = (producto) => {
-
         const existe = itemsCarrito.find( x => x.id === producto.id)
-
         // Si no existe
-        if(!existe) {
-            setItemsCarrito( [...itemsCarrito, producto])
-        }
-        //Si existe
-        // else {
-        //     setItemsCarrito( 
-        //         itemsCarrito.map( x => x.id === producto.id ? {...producto, cantidad : producto.cantidad + x.cantidad} : x)
-        //     )
-        // }
-
+        if (!existe) setItemsCarrito( [...itemsCarrito, {...producto, cantidad : 1}])
+        // Si existe
+        //Revisar logica cuando esté la opcion del counter en el itemDetail
+        else {setItemsCarrito(itemsCarrito.map( x => x.id === producto.id ? {...producto, cantidad : x.cantidad + 1} : x))}
     }
 
     const eliminarProducto = (producto) => {
