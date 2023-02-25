@@ -49,7 +49,7 @@ const Home = () => {
      
       </div>
       <p className="text-sm font-medium leading-4 ml-4 my-8">DESTACADOS</p>
-      <div className="flex flex-col md:grid md:grid-cols-2">
+      <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {/* Mientras se carga se muestra el spinner */}
       {load ?
         <Spinner/>
