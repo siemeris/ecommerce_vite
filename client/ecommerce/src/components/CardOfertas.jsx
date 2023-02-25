@@ -16,7 +16,7 @@ const CardOfertas = ({producto}) => {
 
       
       <div className="px-1 py-4">
-        <div className="font-bold text-xl mb-2">Black Friday</div>
+        <div className="font-bold text-xl mb-2">{title}</div>
         <p className="text-gray-700 text-base">
           {subtitle}
         </p>

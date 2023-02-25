@@ -5,6 +5,7 @@ import CardFiltroMarca from './CardFiltroMarca';
 import CardOfertas from './CardOfertas';
 import CardProductos from './CardProductos';
 import CardPromociones from './CardPromociones';
+import Spinner from './Spinner';
 
 
 
@@ -21,6 +22,24 @@ const ListaDeProductos = () => {
   const handleFilter = () => {
     setMarca(!marca)
   }
+  const [productosApi, setProductosApi] = useState([])
+  const [load, setLoad] = useState(true)
+  // Url del link de github con el .json
+  const url = "https://raw.githubusercontent.com/Nico9934/weatherApp/main/dataProductosNico.json"
+  const DATOS = "https://c9-52-mern.onrender.com/"
+
+  // Llamada a la api para guardar los productos 
+  useEffect(() => {
+    setLoad(true)
+
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        setProductosApi(data)
+        setLoad(false)
+      })
+
+  }, [])
 
   return (
     <div className='w-full min-h-max pb-4'>
@@ -53,16 +72,53 @@ const ListaDeProductos = () => {
           :
           <div>
             <div className="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mb-8">
+              {/* Mientras se carga se muestra el spinner */}
+              {load ?
+                <Spinner />
+                :
+                // Mapea todos los productos para mostrar las promociones
+                productosApi.map(producto => {
+                  if (producto.categoria === categoriaProductos && producto.promocion) {
+                    return <CardOfertas
+                      key={producto.id}
+                      producto={producto}
+                    />
+                  }
+
+                })
+              }
+
+
+              {/*               
+              <CardOfertas  />
               <CardOfertas />
-              <CardOfertas />
-              <CardOfertas />
+              <CardOfertas /> */}
             </div>
             <p className="text-sm font-medium leading-4 ml-4 my-8">PRODUCTOS</p>
-            <div className="flex flex-col">
+            <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3">
+
+              {/* Mientras se carga se muestra el spinner */}
+              {load ?
+                <Spinner />
+                :
+                // Mapea todos los productos para mostrar las promociones
+                productosApi.map(producto => {
+                  if (producto.categoria === categoriaProductos) {
+                    return <CardProductos
+                      key={producto.id}
+                      producto={producto}
+                    />
+                  }
+
+                })
+              }
+
+
+
+              {/* <CardProductos />
               <CardProductos />
               <CardProductos />
-              <CardProductos />
-              <CardProductos />
+              <CardProductos /> */}
             </div>
           </div>
 
