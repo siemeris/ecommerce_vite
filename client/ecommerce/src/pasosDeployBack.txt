@@ -1,0 +1,17 @@
+pararse en la carpeta c9-58-t-mern
+hacerle un git pull
+
+chequear que en el archivo package.json esten las dependencias de Contcurrently
+instalar las dependencias en /c9-58-t-mern
+- npm i
+instalar tambien por las dudas en /c9-58-t-mern/server
+- npm i
+una vez instaladas las dependencias
+pararse de nuevo en /c9-58-t-mern 
+
+npm run start
+
+debería cargar el vite en el localhost/5173
+y el nodemon en otro puerto. 
+
+ser feliz

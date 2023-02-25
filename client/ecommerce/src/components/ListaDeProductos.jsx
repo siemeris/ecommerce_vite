@@ -14,14 +14,17 @@ const ListaDeProductos = () => {
   const { categoriaProductos } = useParams()
   const [categoria, setCategoria] = useState()
   const [marca, setMarca] = useState(false)
-  console.log(categoriaProductos)
+  
   useEffect(() => {
+
     setCategoria(categoriaProductos)
+
   }, [categoriaProductos])
 
   const handleFilter = () => {
     setMarca(!marca)
   }
+  
   const [productosApi, setProductosApi] = useState([])
   const [load, setLoad] = useState(true)
   // Url del link de github con el .json

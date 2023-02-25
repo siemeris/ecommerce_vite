@@ -10,12 +10,27 @@ export const useCompra = () => useContext(AppContext)
 const AppProvider = ({ children }) => {
 
 
-    const consola = () => {
-        console.log("Desde provider")
-    }
+    //Total de productos en el carrito
+    const [itemsCarrito, setItemsCarrito] = useState([])
+    //Total de dinero de los productos en el carrito
+    const [totalProductos, setTotalProductos] = useState(0)
+    
 
     const agregarProducto = (producto) => {
-        setItemsCarrito([...itemsCarrito, producto])
+
+        const existe = itemsCarrito.find( x => x.id === producto.id)
+
+        // Si no existe
+        if(!existe) {
+            setItemsCarrito( [...itemsCarrito, producto])
+        }
+        //Si existe
+        // else {
+        //     setItemsCarrito( 
+        //         itemsCarrito.map( x => x.id === producto.id ? {...producto, cantidad : producto.cantidad + x.cantidad} : x)
+        //     )
+        // }
+
     }
 
     const eliminarProducto = (producto) => {
@@ -24,19 +39,19 @@ const AppProvider = ({ children }) => {
 
     const limpiarCarrito = () => setItemsCarrito([])
 
-    return (
-
-        <>
-            <AppContext.Provider
-                value={{
-                    agregarProducto,
-                    eliminarProducto,
-                    limpiarCarrito,
-                    consola
-                }}
-            >
+  return (
+    
+    <>
+        <AppContext.Provider
+            value={{
+                agregarProducto,
+                eliminarProducto, 
+                limpiarCarrito,
+                itemsCarrito,
+                totalProductos,
+                setTotalProductos
+            }}>
                 {children}
-
             </AppContext.Provider>
         </>
     )

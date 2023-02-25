@@ -14,18 +14,22 @@ const Home = () => {
   const url = "https://raw.githubusercontent.com/Nico9934/weatherApp/main/dataProductosNico.json"
   const DATOS = "https://c9-52-mern.onrender.com/"
 
+
+
   // Llamada a la api para guardar los productos 
   useEffect( () => {
-    setLoad(true)
+      setLoad(true)
 
-    fetch(url)
-    .then( res => res.json())
-    .then( data => {
+      fetch(url)
+        .then( res => res.json())
+        .then( data => {
       setProductosApi(data)
       setLoad(false)
     })
 
   },[])
+  
+  
   
   return (
     <div className='w-11/12 m-auto'>
