@@ -16,10 +16,10 @@ const AppProvider = ({children}) => {
     
 
     const agregarProducto = (producto) => {
+
         const existe = itemsCarrito.find( x => x.id === producto.id)
 
-
-        //Si no existe
+        // Si no existe
         if(!existe) {
             setItemsCarrito( [...itemsCarrito, producto])
         }

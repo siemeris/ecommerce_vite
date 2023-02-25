@@ -25,8 +25,10 @@ const MainRoutes = () => {
           <Route path='/checkout' element={<CheckOut />} />
           <Route path='/state' element={<PedidoState />} />
           {/* Con esta ruta, se filtrarian celulares, tablets, compus, lo que sea */}
+          
           <Route path='/productos/:categoriaProductos' element={<ListaDeProductos />}/>
           <Route path='/producto/:idProducto' element={<ItemDetail />}/>
+
 
 
         </Routes>

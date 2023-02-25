@@ -11,7 +11,6 @@ const ListaDeProductos = () => {
 
   const { categoriaProductos } = useParams()
   const [categoria, setCategoria] = useState()
-  console.log(categoriaProductos)
   useEffect(() => {
     setCategoria(categoriaProductos)
   }, [categoriaProductos])

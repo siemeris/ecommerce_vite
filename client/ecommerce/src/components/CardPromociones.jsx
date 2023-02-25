@@ -5,6 +5,8 @@ import { useCompra } from './AppProvider'
 
 const CardPromociones = ({producto}) => {
 
+    const {agregarProducto} = useCompra()
+
     //De cada producto hacemos destructuring para mostrar en pantalla las caracteristicas
     const {title, price, subtitle, photos} = producto
 
@@ -47,13 +49,17 @@ const CardPromociones = ({producto}) => {
 
             <div className="flex justify-center flex-col gap-1">
                 
-                {/* Al hacer click en el link de agregar al carrito, se abre la ventana de 
-                detalle del producto para elegir la cantidad
-                Se pasa por useParams el id del producto*/}
+                {/* Al hacer click en el link de agregar al carrito, se abre el menu o no
+                del carrito. Por defecto se agrega un solo del mismo. */}
+                <Link 
+                    // onClick={producto => agregarProducto()}
+                    onClick={() => agregarProducto(producto)}
+                    className="w-full text-center border-2 border-violet-700 hover:border-violet-900 hover:text-violet-800 text-violet-700 text-xs py-2 px-4 rounded-md">Agregar al carrito</Link>
+                {/* Al hacer click en el link de comprar, se abre el detalle del producto
+                para elegir la cantidad */}
                 <Link 
                     to={`/producto/${producto.id}`}
-                    className="w-full text-center border-2 border-violet-700 hover:border-violet-900 hover:text-violet-800 text-violet-700 text-xs py-2 px-4 rounded-md">Agregar al carrito</Link>
-                <Link className="w-full text-center bg-violet-700 hover:bg-violet-800 text-white text-xs py-2 px-4 rounded-md" to={"/productos/itemdetail"}>Comprar</Link>
+                    className="w-full text-center bg-violet-700 hover:bg-violet-800 text-white text-xs py-2 px-4 rounded-md">Comprar</Link>
             </div>
             </div>
         </div>
