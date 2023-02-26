@@ -12,8 +12,23 @@ const Home = () => {
 
   // Url del link de github con el .json
   const url = "https://raw.githubusercontent.com/Nico9934/weatherApp/main/dataProductosNico.json"
-  const DATOS = "https://c9-52-mern.onrender.com/"
+  const urlBackend = " https://c9-52-mern.onrender.com/api/v1/products/"
 
+
+  useEffect( () => {
+
+    const obtenerDatos = async () => {
+      try {
+        await fetch(urlBackend)  
+                .then(res => res.json())
+                .then(data => console.log(data.data.products))
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    obtenerDatos()
+  },[])
 
 
   // Llamada a la api para guardar los productos 
