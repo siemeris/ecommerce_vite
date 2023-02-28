@@ -72,9 +72,17 @@ const ListaDeProductos = () => {
         </div>
         <p className="text-sm font-medium leading-4 ml-4 mb-8">DESTACADOS</p>
 
-        {menuVisible && <FiltroProductos menuVisible={menuVisible} setMenuVisible={setMenuVisible}/>}
+        {menuVisible && <FiltroProductos menuVisible={menuVisible} setMenuVisible={setMenuVisible} setMarca={setMarca}/>}
         {marca ?
-          <CardFiltroMarca />
+        productosApi.map(producto => {
+          if (producto.categoria === categoriaProductos && producto.brand === marca) {
+            return <CardFiltroMarca
+              key={producto.id}
+              producto={producto}
+            />
+          }
+
+        })
           :
           <div>
             <div className="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mb-8">
