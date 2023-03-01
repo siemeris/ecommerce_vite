@@ -28,6 +28,21 @@ const Home = () => {
   },[])
 
 
+  // useEffect( () => {
+
+  //   const obtenerDatos = async () => {
+  //     try {
+  //       await fetch(urlBackend)  
+  //               .then(res => res.json())
+  //               .then(data => console.log(data.data.products))
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
+
+  //   obtenerDatos()
+  // },[])
+
 
   // Llamada a la api para guardar los productos desde el json
   useEffect( () => {

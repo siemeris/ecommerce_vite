@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Kerfin from '../img/Kerfin7_NEA_2267-01.png'
 import { useCompra } from './AppProvider'
 
 const CardPromociones = ({producto}) => {
 
-    const {agregarProducto} = useCompra()
+    const {agregarProducto, itemsCarrito} = useCompra()
+
+
+    // const agregandoProducto = (producto) => {
+    //         useEffect( () => {
+    //             agregarProducto(producto)
+    //         }, [itemsCarrito])
+    //     }
+
 
     //De cada producto hacemos destructuring para mostrar en pantalla las caracteristicas
     const {title, price, subtitle, photos} = producto
