@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useMatch } from 'react-router-dom'
 
 const FiltroProductos = ({ menuVisible, setMenuVisible, setMarca, marca }) => {
 
 
+    const {path, url} = useMatch()
     const [categoriasVisible, setCategoriasVisible] = useState(false)
 
     return (
@@ -35,13 +36,13 @@ const FiltroProductos = ({ menuVisible, setMenuVisible, setMarca, marca }) => {
                     categoriasVisible
                     &&
                     <div className='flex flex-col text-center w-full transition-all '>
-                        <p className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5"  onClick={() => setMarca("Logitech")}>Logitech</p>
-                        {console.log(setMarca(marca))}
-                        <Link className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/productos/celulares"}>Asus</Link>
-                        <Link className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/productos/auriculares"}>Iphone</Link>
-                        <Link className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/productos/teclados"}>Microsoft</Link>
-                        <Link className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/productos/teclados"}>Samsung</Link>
-                        <Link className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/productos/teclados"}>Hp</Link>
+                        <Link className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5"  to={`${url}/Logitech`}>Logitech</Link>
+                        {/* {console.log(setMarca(marca))} */}
+                        <Link className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/:categoriaProductos/Asus"}>Asus</Link>
+                        <Link className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/:categoriaProductos/Iphone"}>Iphone</Link>
+                        <Link className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/:categoriaProductos/Microsoft"}>Microsoft</Link>
+                        <Link className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/:categoriaProductos/Samsung"}>Samsung</Link>
+                        <Link className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/productos/Hp"}>Hp</Link>
                     </div>
                 }
 

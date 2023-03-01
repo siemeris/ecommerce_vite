@@ -13,6 +13,8 @@ import Spinner from './Spinner';
 const ListaDeProductos = () => {
 
   const { categoriaProductos } = useParams()
+  const { brand } = useParams()
+  {console.log(brand, categoriaProductos)}
   const [categoria, setCategoria] = useState()
   const [marca, setMarca] = useState(false)
   console.log(categoriaProductos)
@@ -73,9 +75,9 @@ const ListaDeProductos = () => {
         <p className="text-sm font-medium leading-4 ml-4 mb-8">DESTACADOS</p>
 
         {menuVisible && <FiltroProductos menuVisible={menuVisible} setMenuVisible={setMenuVisible} setMarca={setMarca}/>}
-        {marca ?
+        {brand ?
         productosApi.map(producto => {
-          if (producto.categoria === categoriaProductos && producto.brand === marca) {
+          if (producto.categoria === categoriaProductos && producto.brand === brand) {
             return <CardFiltroMarca
               key={producto.id}
               producto={producto}
