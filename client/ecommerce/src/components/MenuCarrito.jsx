@@ -7,10 +7,30 @@ import MenuCarritoProducto from "./MenuCarritoProducto";
 const MenuCarrito = ({ setMenuCarritoVisible, menuCarritoVisible }) => {
   const { itemsCarrito } = useCompra();
 
+  const functionEjercicio = () => {
+    console.log('Desde funcion')
+    let i = 6;
+
+    while(i > 0) {
+        if (i < 3) {
+        i = i + 1;
+      }
+    
+    i = i - 2;
+    
+    console.log(i)
+    
+    }
+
+  }
+
+  functionEjercicio()
+
+
   return (
     <>
       <div className="w-1/5 h-screen bottom-0 left-0 bg-violet-100 opacity-80 absolute"></div>
-      <div className="right-0 bottom-0 w-4/5 h-screen z-30 blur-0 bg-blue-100 pt-7 fixed overflow-scroll">
+      <div className="right-0 bottom-0 w-4/5 h-screen z-30 bg-blue-100 pt-7 fixed overflow-scroll">
         {/* Titulo */}
         <div className="w-full flex justify-between content-center border-b pb-5 border-gray-300">
           <h3 className="w-4/5 text-gray-400 text-start uppercase font-bold m-auto">

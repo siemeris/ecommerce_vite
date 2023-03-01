@@ -15,20 +15,20 @@ const Home = () => {
   const urlBackend = " https://c9-52-mern.onrender.com/api/v1/products/"
 
 
-  useEffect( () => {
+  // useEffect( () => {
 
-    const obtenerDatos = async () => {
-      try {
-        await fetch(urlBackend)  
-                .then(res => res.json())
-                .then(data => console.log(data.data.products))
-      } catch (error) {
-        console.log(error)
-      }
-    }
+  //   const obtenerDatos = async () => {
+  //     try {
+  //       await fetch(urlBackend)  
+  //               .then(res => res.json())
+  //               .then(data => console.log(data.data.products))
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
 
-    obtenerDatos()
-  },[])
+  //   obtenerDatos()
+  // },[])
 
 
   // Llamada a la api para guardar los productos 
