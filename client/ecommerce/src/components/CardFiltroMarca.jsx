@@ -56,10 +56,13 @@ const CardFiltroMarca = ({producto}) => {
             </div>
 
             <div className="flex justify-center flex-col gap-1">
-
-              <Link className="w-full text-center border-2 border-violet-700 hover:bg-violet-800 text-violet-700 text-xs py-2 px-4 rounded-md" to={"/productos/itemdetail"}>Agregar al carrito</Link>
-              <Link className="w-full text-center bg-violet-700 hover:bg-violet-800 text-white text-xs py-2 px-4 rounded-md" to={"/productos/itemdetail"}>Comprar</Link>
-            </div>
+                    <Link
+                        onClick={() => agregarProducto(producto)}
+                        className="w-full text-center border-2 border-violet-700 hover:border-violet-900 hover:text-violet-800 text-violet-700 text-xs py-2 px-4 rounded-md">Agregar al carrito</Link>
+                    <Link
+                        to={`/producto/${producto.id}`}
+                        className="w-full text-center bg-violet-700 hover:bg-violet-800 text-white text-xs py-2 px-4 rounded-md">Detalles</Link>
+                </div>
           </div>
         </div>
   )
