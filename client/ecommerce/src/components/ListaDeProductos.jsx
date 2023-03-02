@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
+import { useCompra } from './AppProvider';
 import CardDestacados from './CardDestacados';
 import CardFiltroMarca from './CardFiltroMarca';
 import CardOfertas from './CardOfertas';
@@ -13,19 +14,19 @@ import Spinner from './Spinner';
 const ListaDeProductos = () => {
 
   const { categoriaProductos } = useParams()
-  const { brand } = useParams()
-  {console.log(brand, categoriaProductos)}
   const [categoria, setCategoria] = useState()
-  const [marca, setMarca] = useState(false)
-  console.log(categoriaProductos)
+  const [marcaFiltro, setMarcaFiltro] = useState(false)
+  const { brand, setBrand }= useCompra()
+
+  console.log(categoriaProductos, brand)
   useEffect(() => {
     setCategoria(categoriaProductos)
   }, [categoriaProductos])
 
   const [menuVisible, setMenuVisible] = useState(false)
-  const handleFilter = () => {
-    setMarca(!marca)
-  }
+  // const handleFilter = () => {
+  //   setMarcaFiltro(!marcaFiltro)
+  // }
   const [productosApi, setProductosApi] = useState([])
   const [load, setLoad] = useState(true)
   // Url del link de github con el .json
@@ -44,6 +45,11 @@ const ListaDeProductos = () => {
       })
 
   }, [])
+
+
+  // useEffect(()=>{
+  //   console.log(brand, "brand desde ListaDeProductos")
+  // },[brand])
 
   return (
     <div className='w-full min-h-max pb-4'>
@@ -66,18 +72,18 @@ const ListaDeProductos = () => {
 
         <div className="flex flex-row justify-between">
           <p className="text-sm font-medium leading-4 ml-4 my-8 uppercase">{categoria}</p>
-          <button className="my-auto cursor-pointer" onClick={handleFilter} >
-            <svg onClick={() => setMenuVisible(!menuVisible)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+          <button className="my-auto cursor-pointer">
+            <svg onClick={() => {setMenuVisible(!menuVisible), setBrand('')}} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
             </svg>
           </button>
         </div>
         <p className="text-sm font-medium leading-4 ml-4 mb-8">DESTACADOS</p>
 
-        {menuVisible && <FiltroProductos menuVisible={menuVisible} setMenuVisible={setMenuVisible} setMarca={setMarca}/>}
+        {menuVisible && <FiltroProductos menuVisible={menuVisible} setMenuVisible={setMenuVisible} setMarca={setMarcaFiltro}/>}
         {brand ?
         productosApi.map(producto => {
-          if (producto.categoria === categoriaProductos && producto.brand === brand) {
+          if (producto.categoria === categoriaProductos && producto.brand === brand ) {
             return <CardFiltroMarca
               key={producto.id}
               producto={producto}

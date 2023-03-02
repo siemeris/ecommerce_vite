@@ -24,6 +24,8 @@ const AppProvider = ({ children }) => {
 
     const limpiarCarrito = () => setItemsCarrito([])
 
+    const [brand, setBrand] = useState('')
+
     return (
 
         <>
@@ -32,7 +34,9 @@ const AppProvider = ({ children }) => {
                     agregarProducto,
                     eliminarProducto,
                     limpiarCarrito,
-                    consola
+                    consola,
+                    brand,
+                    setBrand
                 }}
             >
                 {children}
