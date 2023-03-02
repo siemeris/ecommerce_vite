@@ -23,7 +23,7 @@ const AppProvider = ({ children }) => {
             // Si no existe
             if (!existe) {
                 setItemsCarrito( [...itemsCarrito, {...producto, cantidad : 1}])
-                setProductosIcono(producto.cantidad + productosIcono)
+                // setProductosIcono(producto.cantidad + productosIcono)
             }
             // Si existe
             //Revisar logica cuando esté la opcion del counter en el itemDetail
@@ -51,7 +51,8 @@ const AppProvider = ({ children }) => {
                 itemsCarrito,
                 totalProductos,
                 setTotalProductos,
-                productosIcono
+                productosIcono,
+                setProductosIcono
             }}>
                 {children}
             </AppContext.Provider>
