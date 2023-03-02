@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
-import CardDestacados from './CardDestacados';
-import CardOfertas from './CardOfertas';
-import CardProductos from './CardProductos';
-import CardPromociones from './CardPromociones';
-import parlante from '../../public/img/parlante.png'
+import { useCompra } from './AppProvider'
 
 
 
-const CardFiltroMarca = () => {
+const CardFiltroMarca = ({producto}) => {
 
   const { categoriaProductos } = useParams()
   const [categoria, setCategoria] = useState()
+  const { agregarProducto } = useCompra()
+  const {title, price, subtitle, photos} = producto
   console.log(categoriaProductos)
   useEffect(() => {
     setCategoria(categoriaProductos)
@@ -19,11 +17,11 @@ const CardFiltroMarca = () => {
 
   return (
     
-        <div className="flex-none w-72 rounded-md overflow-hidden shadow-lg border border-gray-300 pb-4 mx-auto">
+        <div className="flex-none w-72 rounded-md overflow-hidden shadow-lg border border-gray-300 pb-4 mx-auto mb-4">
           <div className='w-11/12 mx-auto'>
             <div className="flex justify-between">
               <p className="text-gray-800 text-xl font-bold w-4/5 mt-2">
-                Parlante Logitech G G335 Ligthspeed
+                {title}
               </p>
               <div className="my-auto mr-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>
@@ -47,18 +45,21 @@ const CardFiltroMarca = () => {
             </div>
 
 
-            <p className="font-semibold text-3xl flex justify-between items-center">$ 100</p>
+            <p className="font-semibold text-3xl flex justify-between items-center">$ {price}</p>
 
 
             <div className='flex justify-around w-full'>
-              <img className="max-w-42 max-h-44 object-cover" src={parlante} alt="parlante" />
+              <img className="max-w-42 max-h-44 object-cover" src={photos[0]} alt="parlante" />
             </div>
 
             <div className="flex justify-center flex-col gap-1">
-
-              <Link className="w-full text-center border-2 border-violet-700 hover:bg-violet-800 text-violet-700 text-xs py-2 px-4 rounded-md" to={"/productos/itemdetail"}>Agregar al carrito</Link>
-              <Link className="w-full text-center bg-violet-700 hover:bg-violet-800 text-white text-xs py-2 px-4 rounded-md" to={"/productos/itemdetail"}>Comprar</Link>
-            </div>
+                    <Link
+                        onClick={() => agregarProducto(producto)}
+                        className="w-full text-center border-2 border-violet-700 hover:border-violet-900 hover:text-violet-800 text-violet-700 text-xs py-2 px-4 rounded-md">Agregar al carrito</Link>
+                    <Link
+                        to={`/producto/${producto.id}`}
+                        className="w-full text-center bg-violet-700 hover:bg-violet-800 text-white text-xs py-2 px-4 rounded-md">Detalles</Link>
+                </div>
           </div>
         </div>
   )

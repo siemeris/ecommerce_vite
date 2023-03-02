@@ -16,6 +16,8 @@ const AppProvider = ({ children }) => {
     const [totalProductos, setTotalProductos] = useState(0)
     // Total de productos que se muestran en el icono del carrito
     const [productosIcono, setProductosIcono] = useState(0)
+
+    const [brand, setBrand] = useState('')
     
    
         const agregarProducto = (producto) => {
@@ -52,7 +54,9 @@ const AppProvider = ({ children }) => {
                 totalProductos,
                 setTotalProductos,
                 productosIcono,
-                setProductosIcono
+                setProductosIcono,
+                brand,
+                setBrand
             }}>
                 {children}
             </AppContext.Provider>
