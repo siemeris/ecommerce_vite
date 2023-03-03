@@ -113,11 +113,6 @@ const ListaDeProductos = () => {
                 })
               }
 
-
-              {/*               
-              <CardOfertas  />
-              <CardOfertas />
-              <CardOfertas /> */}
             </div>
             <p className="text-sm font-medium leading-4 ml-4 my-8">PRODUCTOS</p>
             <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3">

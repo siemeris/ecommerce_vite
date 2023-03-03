@@ -3,7 +3,6 @@ import React, { useState } from "react";
 
 const ItemCount = ({cantidad, setCantidad}) => {
   
-  console.log(cantidad)
 
   const handleSumar = () => {
     setCantidad(cantidad + 1)

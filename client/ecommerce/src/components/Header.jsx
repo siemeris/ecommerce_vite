@@ -13,7 +13,6 @@ const Header = () => {
   const [menuCarritoVisible, setMenuCarritoVisible] = useState(false)
 
   useEffect(()=>{
-    console.log(itemsCarrito)
     itemsCarrito.length > 0 ? setProductosIcono(itemsCarrito.reduce((acc, item) => acc + item.cantidad, 0)) : setProductosIcono(0)
   },[itemsCarrito])
 

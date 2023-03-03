@@ -8,8 +8,12 @@ const MenuCarritoDetalle = ({producto}) => {
 
   return (
     <div className="w-full flex justify-between items-center">
-      <p className="text-sm font-bold my-3 ">{title}</p>
-      <p className="text-sm  my-3 text-gray-500">${price}</p>
+      <div className="flex justify-between w-full pr-4">
+
+        <p className="text-sm font-bold my-3 ">{title}</p>
+        {producto.cantidad > 1 && <p className='text-gray-400 my-3 text-sm '>X {producto.cantidad}</p>}
+      </div>
+      <p className="text-sm  my-3 text-gray-500">${producto.cantidad * price}</p>
   </div>
   );
 };

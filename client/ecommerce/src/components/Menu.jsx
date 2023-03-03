@@ -36,10 +36,18 @@ const Menu = ({menuVisible, setMenuVisible}) => {
             categoriasVisible 
                 &&
                     <div className='flex flex-col text-center w-full transition-all '>
-                            <Link className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/productos/computadoras"}>Computadoras</Link>
-                            <Link className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/productos/celulares"}>Celulares</Link>
-                            <Link className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/productos/auriculares"}>Auriculares</Link>
-                            <Link className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/productos/teclados"}>Teclados</Link>
+                            <Link
+                                onClick={() => setMenuVisible(!menuVisible)}    
+                            className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/productos/computadoras"}>Computadoras</Link>
+                            <Link
+                                onClick={() => setMenuVisible(!menuVisible)}    
+                            className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/productos/celulares"}>Celulares</Link>
+                            <Link
+                                onClick={() => setMenuVisible(!menuVisible)}    
+                            className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/productos/auriculares"}>Auriculares</Link>
+                            <Link
+                                onClick={() => setMenuVisible(!menuVisible)}    
+                            className="list-none hover:cursor-pointer hover:text-indigo-700 text-start ml-5" to={"/productos/teclados"}>Teclados</Link>
                     </div>
         }
             <div className="w-full mb-2 flex justify-start">

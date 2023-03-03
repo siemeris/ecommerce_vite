@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCompra } from './AppProvider'
 
@@ -7,6 +7,7 @@ const CardDestacados = ({ producto }) => {
     const { agregarProducto, itemsCarrito } = useCompra()
     //De cada producto hacemos destructuring para mostrar en pantalla las caracteristicas
     const { title, price, subtitle, photos } = producto
+    const [cantidadInicial, setCantidadInicial] = useState(1)
 
     return (
         <div className="flex flex-row w-11/12 max-w-sm h-56 min-w-min rounded-md bg-white shadow-md mx-auto mb-4 border border-gray-300">
@@ -27,11 +28,11 @@ const CardDestacados = ({ producto }) => {
                 </div>
                 <div className="flex justify-center flex-col gap-1">
                     <Link
-                        onClick={() => agregarProducto(producto)}
+                        onClick={() => agregarProducto({...producto, cantidad : cantidadInicial})}
                         className="w-full text-center border-2 border-violet-700 hover:border-violet-900 hover:text-violet-800 text-violet-700 text-xs py-2 px-4 rounded-md">Agregar al carrito</Link>
                     <Link
                         to={`/producto/${producto.id}`}
-                        className="w-full text-center bg-violet-700 hover:bg-violet-800 text-white text-xs py-2 px-4 rounded-md">Detalles</Link>
+                        className="w-full text-center bg-violet-700 hover:bg-violet-800 text-white text-xs py-2 px-4 rounded-md">Ver mas</Link>
                 </div>
             </div>
 
