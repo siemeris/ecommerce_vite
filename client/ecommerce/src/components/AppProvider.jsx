@@ -27,11 +27,11 @@ const AppProvider = ({ children }) => {
         nombre: "",
         apellido: "",
         dni: 0,
+        telefono: 0,
         direccion: "",
         piso: 0,
         provincia: "",
         codigopostal: 0,
-        telefono: 0,
         envio: "",
         nombretitulartarjeta: "",
         numerotarjeta: 0,
@@ -60,23 +60,31 @@ const AppProvider = ({ children }) => {
         //                 }
         //             }
         //         ))
-        //           itemsCarrito.map( x => {
-        //             setTotalProductos((x.price * x.cantidad) + totalProductos)
-        //         })
+        //          
         //     }
            
         // }
-        const agregarProducto = (producto) => {
+        const agregarProducto = async (producto) => {
+            
             const existe = itemsCarrito.find( x => x.id === producto.id)
             // Si no existe
             if (!existe) {
-                setItemsCarrito( [...itemsCarrito, {...producto, cantidad : 1}])
+                setItemsCarrito( [...itemsCarrito, {...producto, cantidad : producto.cantidad}])
+                setTotalProductos( totalProductos + producto.price)
                 // setProductosIcono(producto.cantidad + productosIcono)
             }
             // Si existe
             //Revisar logica cuando esté la opcion del counter en el itemDetail
-            else {setItemsCarrito(itemsCarrito.map( x => x.id === producto.id ? {...producto, cantidad : x.cantidad + 1} : x))}
-            console.log(itemsCarrito)
+            else {
+                setItemsCarrito(itemsCarrito.map( x => x.id === producto.id ? {...producto, cantidad : x.cantidad + 1} : x))}
+                
+                
+                
+                
+               
+                itemsCarrito.map( x => {
+                       setTotalProductos((x.price * x.cantidad) + totalProductos)
+                    })
         }
 
     
