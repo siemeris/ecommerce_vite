@@ -7,8 +7,12 @@ const CheckOut = () => {
 
   const [step, setStep] = useState(1)
   const [mostrarCodigo, setMostrarCodigo] = useState(false)
-  const {usuario, setUsuario, itemsCarrito, totalProductos} = useCompra()
+  const {usuario, setUsuario, itemsCarrito, totalProductos, limpiarCarrito,eliminarProducto} = useCompra()
 
+  const finalizarCompra = () => {
+    setStep( step + 1)
+    limpiarCarrito()
+  }
   
   return (
     <div className='container m-auto bg-white'>
@@ -47,27 +51,38 @@ const CheckOut = () => {
               {
                 step === 1 &&
            
-              <div className='grid grid-cols-2 w-11/12 m-auto border-b border-gray-800 mb-5'>
+              // <div className='grid grid-cols-2 w-11/12 m-auto border-b border-gray-800 mb-5'>
+              <div className='flex flex-col w-11/12 m-auto border-b mt-5 border-gray-800 mb-5'>
                 {itemsCarrito.map( producto => {
                   
                 
-                  return <>
-                     <div className='col-start-1' >
-                      <img className='w-15 h-15 object-cover m-auto' src={producto.photos[0]} alt="" />
+                  return <div className='flex gap-3'>
+
+                    {/* <div className='flex justify-around w-full m-auto'> */}
+                        {/* <div className='h-32 w-2/3  object-contain'> */}
+                            {/* <img className="w-auto h-full " src={photos[0]} alt="Kerfin" /> */}
+                        {/* </div> */}
+                        {/* <p className='w-1/3 -rotate-90 font-bold text-xl transform uppercase flex justify-center -mr-10'>{title}</p> */}
+                    {/* </div> */}
+
+
+                     <div className='w-1/3 flex items-center justify-center' >
+                      <img className='w-auto object-cover m-auto' src={producto.photos[0]} alt="" />
                     </div>
-                    <div className='col-start-2 p-5'>
+                    <div className='w-2/3 p-5'>
                       <h3 className='text-start text-gray-800 font-bold text-2xl'>{producto.title}</h3>
-                      <p className='text-start text-sm text-blue-700'>Envío gratis</p>
-                      <p className='text-start text-sm text-blue-700'>Stock</p>
+                      <p className='text-start text-sm text-violet-700'>Envío gratis</p>
+                      <p className='text-start text-sm text-violet-700'>Cantidad: {producto.cantidad}</p>
+                      <p className='text-start text-sm text-violet-700'>Stock</p>
                       <p className='text-start text-md text-gray-800'>Negro</p>
                       <div className="w-20 flex justify-center content-center items-center gap-1 hover:cursor-pointer">
-                        <p className='underline text-red-500'>Eliminar</p>
+                        <p onClick={()=> eliminarProducto(producto)} className='underline text-red-500'>Eliminar</p>
                         <svg  className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" /></svg>
                       </div>
                       <p className='text-end font-bold text-2xl text-gray-800'>${producto.price}</p>
                     </div>
                   
-                  </>
+                  </div>
                   }
 
                   )}
@@ -77,11 +92,13 @@ const CheckOut = () => {
               }
                 
               {/* Garantia */}
+              {step === 1 &&
               <div className='container m-auto w-11/12 flex justify-around bg-gray-400 rounded-sm py-2 mb-10 items-center'>
                 <svg  className="w-6 h-6 m-0" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 <p className='text-sm font-medium'>Garantia por 12 meses</p>
                 <p className='hover: cursor-pointer text-sm font-medium text-white'>+ Agregar Tiempo</p>
               </div>
+              }
               
           
 
@@ -280,8 +297,11 @@ const CheckOut = () => {
                       itemsCarrito.map( producto => {
                         return <>
                           <div className='w-full flex justify-between items-center'>
+                            <div className='flex justify-between pr-4 w-full'>
                               <p className='font-bold my-3 text-lg'>{producto.title}</p>
-                             <p className='text-base my-3 text-gray-500'>${producto.price}</p>
+                              {producto.cantidad > 1 && <p className='text-gray-400 my-3 text-lg'>X {producto.cantidad}</p>}
+                            </div>
+                             <p className='text-base my-3 text-gray-500'>${producto.price * producto.cantidad}</p>
                            </div>
                         </>
                       })
@@ -322,7 +342,7 @@ const CheckOut = () => {
                     step === 3
                       &&
                     <button className='w-full rounded-md bg-violet-700 text-white uppercase font-semibold text-sm py-2 hover:cursor-pointer'
-                      onClick={() => setStep( step + 1)}>Finalizar compra</button>
+                      onClick={() => finalizarCompra() }>Finalizar compra</button>
                   }
 
                   

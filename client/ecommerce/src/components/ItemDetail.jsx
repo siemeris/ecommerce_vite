@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { useCompra } from './AppProvider'
 import ItemCount from './ItemCount'
 import Spinner from './Spinner'
 
@@ -13,9 +14,14 @@ const ItemDetail = () => {
     const [productoDetalle, setProductoDetalle] = useState({})
     const [load, setLoad] = useState(true)
     const [cantidad, setCantidad] = useState(1)
+    const {agregarProducto} = useCompra()
 
     const {title, subtitle, photos, description,characteristics, price} = productoDetalle
 
+
+    const finalizarCompra = () => {
+        agregarProducto(productoDetalle)
+    }
 
     useEffect( () => {
         // Llamada a fetch filtrando por el id del producto
@@ -94,8 +100,14 @@ const ItemDetail = () => {
 
         {/* Botones */}
         <div className='flex justify-center gap-3 mt-10' > 
-            <Link className='rounded-xl flex items-center justify-center text-center text-xs py-2 px-3 w-1/3 bg-violet-700 hover:bg-violet-600 text-white '>Comprar</Link>
-            <Link className='rounded-xl flex items-center justify-center text-center text-xs py-2 px-3 w-1/3 bg-violet-700 hover:bg-violet-600 text-white '>Agregar al carrito</Link>
+            <Link 
+            to="/checkout"
+            onClick={() => agregarProducto({...productoDetalle, cantidad})}
+            className='rounded-xl flex items-center justify-center text-center text-xs py-2 px-3 w-1/3 bg-violet-700 hover:bg-violet-600 text-white '>Comprar</Link>
+            <Link onClick={() => 
+                 agregarProducto({...productoDetalle, cantidad : cantidad})
+                } 
+            className='rounded-xl flex items-center justify-center text-center text-xs py-2 px-3 w-1/3 bg-violet-700 hover:bg-violet-600 text-white '>Agregar al carrito</Link>
         </div>
         
         {/* Especificaciones */}

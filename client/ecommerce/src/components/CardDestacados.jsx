@@ -7,6 +7,7 @@ const CardDestacados = ({ producto }) => {
     const { agregarProducto, itemsCarrito } = useCompra()
     //De cada producto hacemos destructuring para mostrar en pantalla las caracteristicas
     const { title, price, subtitle, photos } = producto
+    
 
     return (
         <div className="flex flex-row w-11/12 max-w-sm h-56 min-w-min rounded-md bg-white shadow-md mx-auto mb-4 border border-gray-300">

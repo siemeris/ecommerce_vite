@@ -67,7 +67,7 @@ const CardPromociones = ({producto}) => {
                 para elegir la cantidad */}
                 <Link 
                     to={`/producto/${producto.id}`}
-                    className="w-full text-center bg-violet-700 hover:bg-violet-800 text-white text-xs py-2 px-4 rounded-md">Comprar</Link>
+                    className="w-full text-center bg-violet-700 hover:bg-violet-800 text-white text-xs py-2 px-4 rounded-md">Ver más</Link>
             </div>
             </div>
         </div>
