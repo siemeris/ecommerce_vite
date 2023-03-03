@@ -14,18 +14,18 @@ const Home = () => {
   const url = "https://raw.githubusercontent.com/Nico9934/weatherApp/main/dataProductosNico.json"
   const urlBackend = "https://c9-52-mern.onrender.com/api/v1/products/"
 
-  useEffect( () => {
-    const obtenerProductos = async () => {
-      try {
-        await fetch(urlBackend)
-                .then(response => response.json())
-                .then( result => console.log(result.data.products))
-      } catch (error) {
-        console.error(error)
-      }
-    }
-    obtenerProductos()
-  },[])
+  // useEffect( () => {
+  //   const obtenerProductos = async () => {
+  //     try {
+  //       await fetch(urlBackend)
+  //               .then(response => response.json())
+  //               .then( result => console.log(result.data.products))
+  //     } catch (error) {
+  //       console.error(error)
+  //     }
+  //   }
+  //   obtenerProductos()
+  // },[])
 
 
   // useEffect( () => {

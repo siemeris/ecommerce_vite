@@ -5,26 +5,9 @@ import MenuCarritoDetalle from "./MenuCarritoDetalle";
 import MenuCarritoProducto from "./MenuCarritoProducto";
 
 const MenuCarrito = ({ setMenuCarritoVisible, menuCarritoVisible }) => {
-  const { itemsCarrito } = useCompra();
+  const { itemsCarrito, totalProductos } = useCompra();
 
-  const functionEjercicio = () => {
-    console.log('Desde funcion')
-    let i = 6;
-
-    while(i > 0) {
-        if (i < 3) {
-        i = i + 1;
-      }
-    
-    i = i - 2;
-    
-    console.log(i)
-    
-    }
-
-  }
-
-  functionEjercicio()
+  
 
 
   return (
@@ -61,12 +44,12 @@ const MenuCarrito = ({ setMenuCarritoVisible, menuCarritoVisible }) => {
 
             <div className="flex justify-between items-center border-b border-gray-500 border-dashed ">
               <p className="text-sm text-gray-700 my-3">Subtotal</p>
-              <p className="text-sm text-gray-700 my-3">$200</p>
+              <p className="text-sm text-gray-700 my-3">${totalProductos}</p>
             </div>
 
             <div className="w-full flex justify-between items-center py-5">
               <p className="font-sm font-semiboldtext-lg">Total</p>
-              <p className="font-sm font-semiboldtext-lg">$200</p>
+              <p className="font-sm font-semiboldtext-lg">${totalProductos}</p>
             </div>
             {/* Boton para ir al checkout */}
             <Link

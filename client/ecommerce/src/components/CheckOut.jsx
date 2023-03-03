@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useCompra } from './AppProvider'
 import CheckOutStep from './CheckOutStep'
 
 
@@ -6,7 +7,9 @@ const CheckOut = () => {
 
   const [step, setStep] = useState(1)
   const [mostrarCodigo, setMostrarCodigo] = useState(false)
+  const {usuario, setUsuario, itemsCarrito, totalProductos} = useCompra()
 
+  
   return (
     <div className='container m-auto bg-white'>
             
@@ -43,34 +46,44 @@ const CheckOut = () => {
               {/* productos en el carrito */}
               {
                 step === 1 &&
-              <>
+           
               <div className='grid grid-cols-2 w-11/12 m-auto border-b border-gray-800 mb-5'>
-                <div className='col-start-1' >
-                  <img className='w-15 h-15 object-cover m-auto' src="./public/img/parlante.png" alt="" />
-                </div>
-                  <div className='col-start-2 p-5'>
-                      <h3 className='text-start text-gray-800 font-bold text-2xl'>Parlante Awei</h3>
+                {itemsCarrito.map( producto => {
+                  
+                
+                  return <>
+                     <div className='col-start-1' >
+                      <img className='w-15 h-15 object-cover m-auto' src={producto.photos[0]} alt="" />
+                    </div>
+                    <div className='col-start-2 p-5'>
+                      <h3 className='text-start text-gray-800 font-bold text-2xl'>{producto.title}</h3>
                       <p className='text-start text-sm text-blue-700'>Envío gratis</p>
                       <p className='text-start text-sm text-blue-700'>Stock</p>
                       <p className='text-start text-md text-gray-800'>Negro</p>
-                      {/* Counter Item */}
-                        <p className='text-gray-800'>Counter Item</p>
                       <div className="w-20 flex justify-center content-center items-center gap-1 hover:cursor-pointer">
                         <p className='underline text-red-500'>Eliminar</p>
                         <svg  className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" /></svg>
                       </div>
-                      <p className='text-end font-bold text-2xl text-gray-800'>$200</p>
+                      <p className='text-end font-bold text-2xl text-gray-800'>${producto.price}</p>
+                    </div>
+                  
+                  </>
+                  }
 
-                  </div>
+                  )}
+                   
               </div>
+           
+              }
+                
               {/* Garantia */}
               <div className='container m-auto w-11/12 flex justify-around bg-gray-400 rounded-sm py-2 mb-10 items-center'>
-                <svg  className="w-6 h-6 m-0" fill="none" viewBox="0 0 24 24" strokWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <svg  className="w-6 h-6 m-0" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 <p className='text-sm font-medium'>Garantia por 12 meses</p>
                 <p className='hover: cursor-pointer text-sm font-medium text-white'>+ Agregar Tiempo</p>
               </div>
-              </>
-              }
+              
+          
 
               {/* Formulario de datos */}
               {
@@ -85,22 +98,22 @@ const CheckOut = () => {
                       {/* Input */}
                       <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="name">Nombre: </label>
-                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='name' placeholder='Ingresa tu nombre' />
+                        <input onChange={ e => setUsuario( {...usuario, nombre : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='name' placeholder='Ingresa tu nombre' />
                       </div>
                        {/* Input */}
                        <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="lastname">Apellido: </label>
-                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='lastname' placeholder='Ingresa tu apellido' />
+                        <input onChange={ e => setUsuario( {...usuario, apellido : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='lastname' placeholder='Ingresa tu apellido' />
                       </div>
                        {/* Input */}
                        <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="dni">DNI: </label>
-                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu DNI' />
+                        <input onChange={ e => setUsuario( {...usuario, dni : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu DNI' />
                       </div>
                       {/* Input */}
                       <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="dni">Telefono: </label>
-                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu Telefono' />
+                        <input onChange={ e => setUsuario( {...usuario, telefono : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu Telefono' />
                       </div>
 
                       <p className='text-xsm text-gray-600'>Esta información será exclusivamente utilizada para el envío</p>
@@ -108,40 +121,42 @@ const CheckOut = () => {
 
                     {/* Datos domicilio */}
                     <div className='w-11/12 m-auto py-5 border-b border-gray-800 border-dotted mb-5'>
-                      <h3 className='font-semibold text-gray-800 text-center mb-5'>Datos de domicilio</h3>
+                      <h3  className='font-semibold text-gray-800 text-center mb-5'>Datos de domicilio</h3>
 
 
                       {/* Input */}
                       <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="name">Dirección ( calle y número ) </label>
-                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='name' placeholder='Ingresa tu dirección' />
+                        <input  onChange={ e => setUsuario( {...usuario, direccion : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='name' placeholder='Ingresa tu dirección' />
                       </div>
                        {/* Input */}
                        <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="lastname">Piso / Departamento: </label>
-                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 text-sm placeholder:text-sm placeholder:text-gray-800' type="text" id='lastname' placeholder='Ingresa tu piso / departamento' />
+                        <input  onChange={ e => setUsuario( {...usuario, piso : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 text-sm placeholder:text-sm placeholder:text-gray-800' type="text" id='lastname' placeholder='Ingresa tu piso / departamento' />
                       </div>
                        {/* Input */}
                        <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="dni">Provincia: </label>
-                        <select className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu provincia'>
-                          <option value="buenosaires">Buenos Aires</option>  
-                          <option value="catamarca">Catamarca</option>
-                          <option value="cordoba">Córdoba</option>
+                        <select  onChange={ e => setUsuario( {...usuario, telefono : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu provincia'>
+                          <option value="Buenos Aires">Buenos Aires</option>
+                          <option value="Catamarca">Catamarca</option>
+                          <option value="Chacho">Chaco</option>
+                          <option value="Chubut">Chubut</option>
+                          <option value="Ciudad Autonoma de BS. As">Ciudad Autonoma de Bs As</option>
+                          <option value="Cordoba">Cordoba</option>
+                          <option value="Corrientes">Corrientes</option>
+                          <option value="Entre Rios">Entre Rios</option>
+                          <option value="Formosa">Formosa</option>
                         </select>
 
                         {/* Input */}
                        <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="lastname">Codigo postal: </label>
-                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='lastname' placeholder='Ingresa tu código' />
+                        <input onChange={ e => setUsuario( {...usuario, codigopostal : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='lastname' placeholder='Ingresa tu código' />
                       </div>
                         
                       </div>
-                      {/* Input */}
-                      <div className='flex flex-col gap-1 mb-3'>
-                        <label className='text-sm font-semibold text-gray-800' htmlFor="dni">Telefono: </label>
-                        <input className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu Telefono' />
-                      </div>
+                     
 
                       <p className='text-xsm text-gray-600'>Esta información será exclusivamente utilizada para el envío</p>
                     </div>
@@ -168,19 +183,22 @@ const CheckOut = () => {
                 
                 </>
               }
+
               {/* Metodo de pago */}
               {
                 step === 3 && 
                 <>
                   {/* datos */}
-                  <div className='w-11/12 m-auto py-5 border-b border-gray-800 mb-5'>
+                 
+                   
+                       <div className='w-11/12 m-auto py-5 border-b border-gray-800 mb-5'>
                       <p className='font-semibold text-gray-800 text-center mb-5 text-'>Confirmación de datos</p>
                       <div className='border-1 rounded-md p-2'>
                         <h3 className='font-semibold text-gray-700'>Datos personales</h3>
-                        <p className='text-sm text-gray-700'>Juan carlos Gámez</p>
-                        <p className='text-blue-500 text-sm'>Juancarlos@gmail.com - 221 123344</p>
-                        <p className='text-sm text-gray-700'>Ciudad falsa - Buenos Aires</p>
-                        <p className='text-sm text-gray-700'>Calle falsa - número 123</p>
+                        <p className='text-sm text-gray-700'>{usuario.nombre}</p>
+                        <p className='text-blue-500 text-sm'>{usuario.mail} - {usuario.telefono}</p>
+                        <p className='text-sm text-gray-700'>{usuario.provincia} - Buenos Aires</p>
+                        <p className='text-sm text-gray-700'>{usuario.direccion} - número 123</p>
 
                       </div>
                   </div>
@@ -202,6 +220,12 @@ const CheckOut = () => {
                           </div>
                         </div>
                   </div>
+                    
+                    
+               
+                  
+
+               
                   {/* Metodo de pago */}
                   <div className='w-11/12 m-auto py-5 border-b border-gray-800 border-dotted mb-5'>
                       <h3 className='font-semibold text-gray-800 text-center mb-5'>Método de pago</h3>
@@ -251,13 +275,22 @@ const CheckOut = () => {
 
                   {/* Lista del carrito */}
                   <div className='w-full border-b border-gray-400 mb-5'>
+
+                    {
+                      itemsCarrito.map( producto => {
+                        return <>
+                          <div className='w-full flex justify-between items-center'>
+                              <p className='font-bold my-3 text-lg'>{producto.title}</p>
+                             <p className='text-base my-3 text-gray-500'>${producto.price}</p>
+                           </div>
+                        </>
+                      })
+                    }
                     {/* Producto de la lista */}
-                    <div className='w-full flex justify-between items-center'>
-                      <p className='font-bold my-3 text-lg'>Parlante awai x2</p>
-                      <p className='text-base my-3 text-gray-500'>$200</p>
-                    </div>
+                    
                     <div className='w-full flex justify-between items-center'>
                       <p className='font-bold text-lg'>Envío</p>
+                      
                       <p className='text-base text-gray-500'>Gratis</p>
                     </div>
                   </div>
@@ -266,11 +299,15 @@ const CheckOut = () => {
                   <div className='w-full'>
                   <div className='w-full flex justify-between items-center pb-5 border-b border-gray-500 border-dashed'>
                       <p className='text-base text-gray-700'>Subtotal</p>
-                      <p className='text-base text-gray-700'>$200</p>
+                      <p className='text-base text-gray-700'>${totalProductos}</p>
                   </div>
                   <div className='w-full flex justify-between items-center py-5'>
+                      {
+
+                      }
+                      
                       <p className='font-bold text-lg'>Total</p>
-                      <p className='font-bold text-lg'>$200</p>
+                      <p className='font-bold text-lg'>${totalProductos}</p>
                     </div>
                   </div>
 
