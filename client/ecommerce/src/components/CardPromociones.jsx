@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Kerfin from '../img/Kerfin7_NEA_2267-01.png'
 import { useCompra } from './AppProvider'
@@ -6,6 +6,7 @@ import { useCompra } from './AppProvider'
 const CardPromociones = ({producto}) => {
 
     const {agregarProducto, itemsCarrito} = useCompra()
+    const [cantidadInicial, setCantidadInicial] = useState(1)
 
 
     // const agregandoProducto = (producto) => {
@@ -61,7 +62,7 @@ const CardPromociones = ({producto}) => {
                 del carrito. Por defecto se agrega un solo del mismo. */}
                 <Link 
                     // onClick={producto => agregarProducto()}
-                    onClick={() => agregarProducto(producto)}
+                    onClick={() => agregarProducto({...producto, cantidad: cantidadInicial})}
                     className="w-full text-center border-2 border-violet-700 hover:border-violet-900 hover:text-violet-800 text-violet-700 text-xs py-2 px-4 rounded-md">Agregar al carrito</Link>
                 {/* Al hacer click en el link de comprar, se abre el detalle del producto
                 para elegir la cantidad */}

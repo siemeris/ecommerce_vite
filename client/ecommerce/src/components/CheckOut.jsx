@@ -9,11 +9,68 @@ const CheckOut = () => {
   const [mostrarCodigo, setMostrarCodigo] = useState(false)
   const {usuario, setUsuario, itemsCarrito, totalProductos, limpiarCarrito,eliminarProducto} = useCompra()
 
+
+  // const validarDatos = () => {
+  //   const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+  //   const stringRegex =  /^[a-zA-Z ]+$/
+  //   const numberRegex = /^[0-9]+$/
+
+  //   if (Object.values(usuario).includes("")) {
+  //     toast.warn("Todos los campos son obligatorios");
+  //     return false
+  //   } 
+  //   else if (!stringRegex.test(usuario.nombre)) {
+  //     toast.warn("Debes ingresar un nombre válido")
+  //     return false
+  //   }
+  //   else if (!stringRegex.test(usuario.apellido)) {
+  //     toast.warn("Debes ingresar un apellido válido")
+  //     return false
+  //   }
+  //   else if ( !numberRegex.test(usuario.dni)) {
+  //     toast.warn("Debes ingresar un dni válido")
+  //     return false
+  //   }
+  //   else if ( !numberRegex.test(usuario.telefono)) {
+  //     toast.warn("Debes ingresar un telefono válido")
+  //     return false
+  //   }
+
+
+  //   else if (!emailRegex.test(usuario.mail)) {
+  //     toast.error('Debes ingresar un mail correcto')
+  //     return false
+  //   }
+  //   else if (usuario.mail2 != usuario.mail) {
+  //     toast.warn("El mail debe coincidir con el ingresado")
+  //     return false
+  //   }
+  //   else if ( !stringRegex.test(usuario.calle)) {
+  //     toast.warn("Debes ingresar una calle válida")
+  //     return false
+  //   }
+  //   else if ( !numberRegex.test(usuario.altura)) {
+  //     toast.warn("Debes ingresar una altura válida")
+  //     return false
+  //   }
+  //   else if ( !numberRegex.test(usuario.tarjeta)) {
+  //     toast.warn("Debes ingresar una altura válida")
+  //     return false
+  //   } else {
+  //     return true
+  //   }
+  // }
+
+
   const finalizarCompra = () => {
+    // validarDatos()
     setStep( step + 1)
     limpiarCarrito()
+
   }
   
+
+
   return (
     <div className='container m-auto bg-white'>
             
