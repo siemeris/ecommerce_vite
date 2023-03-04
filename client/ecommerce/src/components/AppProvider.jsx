@@ -28,8 +28,10 @@ const AppProvider = ({ children }) => {
         apellido: "",
         dni: 0,
         telefono: 0,
+
         direccion: "",
-        piso: 0,
+        altura: 0,
+        // piso: 0,
         provincia: "",
         codigopostal: 0,
         envio: "",
