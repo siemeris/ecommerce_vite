@@ -11,8 +11,8 @@ const CheckOutConfirm = () => {
         <p className='font-semibold text-gray-800 text-center mb-5 text-'>Confirmación de datos</p>
         <div className='border-1 rounded-md p-2'>
           <h3 className='font-semibold text-gray-700'>Datos personales</h3>
-          <p className='text-sm text-gray-700'>{usuario.nombre}</p>
-          <p className='text-blue-500 text-sm'>{usuario.mail} - {usuario.telefono}</p>
+          <p className='text-sm text-gray-700'>{usuario.nombre} {usuario.apellido}</p>
+          <p className='text-gray-700 text-sm'>{usuario.email} - {usuario.telefono}</p>
           <p className='text-sm text-gray-700'>{usuario.provincia} - Buenos Aires</p>
           <p className='text-sm text-gray-700'>{usuario.direccion} - número 123</p>
         </div>

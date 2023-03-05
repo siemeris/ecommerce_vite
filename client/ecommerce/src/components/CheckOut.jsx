@@ -41,48 +41,56 @@ const CheckOut = () => {
       toast.warn("Debes ingresar un nombre válido")
       return false
     }  
+    else if (!stringRegex.test(usuario.apellido)) {
+      toast.warn("Debes ingresar un apellido válido")
+      return false
+    }
+    else if ( !numberRegex.test(usuario.dni)) {
+      toast.warn("Debes ingresar un dni válido")
+      return false
+    }
+    else if ( !numberRegex.test(usuario.telefono)) {
+      toast.warn("Debes ingresar un telefono válido")
+      return false
+    }
+    else if (!emailRegex.test(usuario.email)) {
+      toast.error('Debes ingresar un mail correcto')
+      return false
+    }
+
+    // else if (usuario.mail2 != usuario.mail) {
+    //   toast.warn("El mail debe coincidir con el ingresado")
+    //   return false
+    // }
+    
+    else if ( !stringRegex.test(usuario.direccion)) {
+      toast.warn("Debes ingresar una dirección válida")
+      return false
+    }
+    else if ( !numberRegex.test(usuario.altura)) {
+      toast.warn("Debes ingresar una altura válida")
+      return false
+    }
+    else if ( !numberRegex.test(usuario.codigopostal)) {
+     toast.warn("Debes ingresar un codigo válido")
+     return false
+   }
+
+
     else {
-      console.log('Verificando')
+      toast.success("Datos guardados")
       setStep(step+1)
     }
   
-  //   else if (!stringRegex.test(usuario.apellido)) {
-  //     toast.warn("Debes ingresar un apellido válido")
-  //     return false
-  //   }
-  //   else if ( !numberRegex.test(usuario.dni)) {
-  //     toast.warn("Debes ingresar un dni válido")
-  //     return false
-  //   }
-  //   else if ( !numberRegex.test(usuario.telefono)) {
-  //     toast.warn("Debes ingresar un telefono válido")
-  //     return false
-  //   }
-
-  //   else if ( !stringRegex.test(usuario.direccion)) {
-  //      toast.warn("Debes ingresar una calle válida")
-  //      return false
-  //    }
-  //    else if ( !numberRegex.test(usuario.altura)) {
-  //      toast.warn("Debes ingresar una altura válida")
-  //      return false
-  //    }
-  //    else if ( !numberRegex.test(usuario.altura)) {
-  //     toast.warn("Debes ingresar una altura válida")
-  //     return false
-  //   }
 
 
 
 
-  // //   else if (!emailRegex.test(usuario.mail)) {
-  // //     toast.error('Debes ingresar un mail correcto')
-  // //     return false
-  // //   }
-  // //   else if (usuario.mail2 != usuario.mail) {
-  // //     toast.warn("El mail debe coincidir con el ingresado")
-  // //     return false
-  // //   }
+
+
+
+
+
   // //   else if ( !stringRegex.test(usuario.calle)) {
   // //     toast.warn("Debes ingresar una calle válida")
   // //     return false
@@ -104,7 +112,6 @@ const CheckOut = () => {
     // validarDatos()
     setStep( step + 1)
     limpiarCarrito()
-
   }
   
 
@@ -164,37 +171,23 @@ const CheckOut = () => {
               {/* Resumen de la compra */}
               {step <= 3 ?
                 <div className='w-full bg-gray-200 py-7'>
-                <div className='container w-11/12 m-auto'>
-                  <h3 className='font-bold text-xl text-center text-gray-800 mb-5'>Resumen de la compra</h3>
-                  <div className='w-9/12 flex justify-between pb-3 border-b border-gray-500'>
-                    <p className='text-grey-800 text-sm font-semibold text-gray-800'>Tengo código de descuento</p>
-                    <svg className=' my-auto w-5 h-5 hover:cursor-pointer hover:text-red-600' onClick={() => setMostrarCodigo(!mostrarCodigo)}fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                  <div className='container w-11/12 m-auto'>
+                    <h3 className='font-bold text-xl text-center text-gray-800 mb-5'>Resumen de la compra</h3>
+                    <div className='w-9/12 flex justify-between pb-3 border-b border-gray-500'>
+                      <p className='text-grey-800 text-sm font-semibold text-gray-800'>Tengo código de descuento</p>
+                      <svg className=' my-auto w-5 h-5 hover:cursor-pointer hover:text-red-600' onClick={() => setMostrarCodigo(!mostrarCodigo)}fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                    </div>
+                    {mostrarCodigo && <input type="text" className='border-b border-gray-800 inline-block bg-gray-200' />}
+
+                    <CheckOutTotal />
+
+                    {/* Boton para continuar */}
+                    {step === 1 && <button onClick={() => setStep(step+1)} className='w-full rounded-sm bg-violet-700 text-white uppercase font-semibold text-sm py-3 hover:cursor-pointer'>Continuar</button>}
+                    {step === 2 && <button onClick={() => validarDatos()} className='w-full rounded-sm bg-violet-700 text-white uppercase font-semibold text-sm py-3 hover:cursor-pointer'>Continuar</button>}
+                    {step === 3 && <button onClick={() => finalizarCompra()}  className='w-full rounded-md bg-violet-700 text-white uppercase font-semibold text-sm py-2 hover:cursor-pointer'>Finalizar compra</button>}
+
                   </div>
-                  {mostrarCodigo && <input type="text" className='border-b border-gray-800 inline-block bg-gray-200' />}
-
-                  <CheckOutTotal />
-
-                
-
-                  {/* Boton para continuar */}
-                  {
-                    step === 1 && <button className='w-full rounded-sm bg-violet-700 text-white uppercase font-semibold text-sm py-3 hover:cursor-pointer'
-                      onClick={() => setStep(step+1)}>Continuar</button>
-                  }
-                  {
-                    step === 2 && <button className='w-full rounded-sm bg-violet-700 text-white uppercase font-semibold text-sm py-3 hover:cursor-pointer'
-                      onClick={() => validarDatos()}>Continuar</button>
-                  }
-                  {
-                    step === 3
-                      &&
-                    <button className='w-full rounded-md bg-violet-700 text-white uppercase font-semibold text-sm py-2 hover:cursor-pointer'
-                      onClick={() => finalizarCompra() }>Finalizar compra</button>
-                  }
-
-                  
                 </div>
-              </div>
               : 
               
               <div className='h-screen bg-white-200 w-full py-10 m-auto relative'>

@@ -15,13 +15,13 @@ const CheckOutFormUser = () => {
                       {/* Formulario para completar */}
                       {/* Input */}
                       <div className='flex flex-col gap-1 mb-3'>
-                        <label className='text-sm font-semibold text-gray-800' htmlFor="name">Nombre: </label>
-                        <input onChange={ e => setUsuario( {...usuario, nombre : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='name' placeholder='Ingresa tu nombre' />
+                        <label className='text-sm font-semibold text-gray-800' htmlFor="nombre">Nombre: </label>
+                        <input onChange={ e => setUsuario( {...usuario, nombre : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='nombre' placeholder='Ingresa tu nombre' />
                       </div>
                        {/* Input */}
                        <div className='flex flex-col gap-1 mb-3'>
-                        <label className='text-sm font-semibold text-gray-800' htmlFor="lastname">Apellido: </label>
-                        <input onChange={ e => setUsuario( {...usuario, apellido : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='lastname' placeholder='Ingresa tu apellido' />
+                        <label className='text-sm font-semibold text-gray-800' htmlFor="apellido">Apellido: </label>
+                        <input onChange={ e => setUsuario( {...usuario, apellido : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='apellido' placeholder='Ingresa tu apellido' />
                       </div>
                        {/* Input */}
                        <div className='flex flex-col gap-1 mb-3'>
@@ -30,8 +30,13 @@ const CheckOutFormUser = () => {
                       </div>
                       {/* Input */}
                       <div className='flex flex-col gap-1 mb-3'>
-                        <label className='text-sm font-semibold text-gray-800' htmlFor="dni">Telefono: </label>
-                        <input onChange={ e => setUsuario( {...usuario, telefono : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu Telefono' />
+                        <label className='text-sm font-semibold text-gray-800' htmlFor="telefono">Telefono: </label>
+                        <input onChange={ e => setUsuario( {...usuario, telefono : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='telefono' placeholder='Ingresa tu Telefono' />
+                      </div>
+                       {/* Input */}
+                       <div className='flex flex-col gap-1 mb-3'>
+                        <label className='text-sm font-semibold text-gray-800' htmlFor="email">Email: </label>
+                        <input onChange={ e => setUsuario( {...usuario, email : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='email' placeholder='Ingresa tu Email' />
                       </div>
 
                       <p className='text-xsm text-gray-600'>Esta información será exclusivamente utilizada para el envío</p>
@@ -44,13 +49,13 @@ const CheckOutFormUser = () => {
 
                       {/* Input */}
                       <div className='flex flex-col gap-1 mb-3'>
-                        <label className='text-sm font-semibold text-gray-800' htmlFor="name">Dirección </label>
-                        <input  onChange={ e => setUsuario( {...usuario, direccion : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='name' placeholder='Ingresa tu dirección' />
+                        <label className='text-sm font-semibold text-gray-800' htmlFor="direccion">Dirección </label>
+                        <input  onChange={ e => setUsuario( {...usuario, direccion : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='direccion' placeholder='Ingresa tu dirección' />
                       </div>
                        {/* Input */}
                        <div className='flex flex-col gap-1 mb-3'>
-                        <label className='text-sm font-semibold text-gray-800' htmlFor="name">Altura </label>
-                        <input  onChange={ e => setUsuario( {...usuario, altura : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='name' placeholder='Ingresa tu dirección' />
+                        <label className='text-sm font-semibold text-gray-800' htmlFor="altura">Altura </label>
+                        <input  onChange={ e => setUsuario( {...usuario, altura : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='altura' placeholder='Ingresa la altura' />
                       </div>
                        {/* Input */}
                        {/* <div className='flex flex-col gap-1 mb-3'>
@@ -59,8 +64,8 @@ const CheckOutFormUser = () => {
                       </div> */}
                        {/* Input */}
                        <div className='flex flex-col gap-1 mb-3'>
-                        <label className='text-sm font-semibold text-gray-800' htmlFor="dni">Provincia: </label>
-                        <select  onChange={ e => setUsuario( {...usuario, provincia : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu provincia'>
+                        <label className='text-sm font-semibold text-gray-800' htmlFor="provincia">Provincia: </label>
+                        <select  onChange={ e => setUsuario( {...usuario, provincia : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Selecciona tu provincia'>
                           <option value="Buenos Aires">Buenos Aires</option>
                           <option value="Catamarca">Catamarca</option>
                           <option value="Chacho">Chaco</option>
@@ -74,8 +79,8 @@ const CheckOutFormUser = () => {
 
                         {/* Input */}
                        <div className='flex flex-col gap-1 mb-3'>
-                        <label className='text-sm font-semibold text-gray-800' htmlFor="lastname">Codigo postal: </label>
-                        <input onChange={ e => setUsuario( {...usuario, codigopostal : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='lastname' placeholder='Ingresa tu código' />
+                        <label className='text-sm font-semibold text-gray-800' htmlFor="codigopostal">Codigo postal: </label>
+                        <input onChange={ e => setUsuario( {...usuario, codigopostal : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='codigopostal' placeholder='Ingresa tu código postal' />
                       </div>
                         
                       </div>

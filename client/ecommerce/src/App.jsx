@@ -19,7 +19,7 @@ function App() {
             <Header/>
               <MainRoutes />
             <Footer />
-            <ToastContainer className="w-9/12" position="top-center" autoClose={1500} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="colored"/>
+            <ToastContainer toastStyle={{ backgroundColor: "rgb(109 40 217)" }} className="w-9/12" position="top-center" autoClose={1500} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="colored"/>
           </BrowserRouter>
         </AppProvider>
     </div>
