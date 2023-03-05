@@ -32,84 +32,54 @@ const CheckOut = () => {
      const {nombre, apellido, dni, telefono, direccion, altura, provincia, codigopostal} = usuario
      const datosPersonales = [nombre, apellido, dni, telefono, direccion, altura, provincia, codigopostal]
      
-    if (Object.values(datosPersonales).includes("")) {
-      console.log(nombre, apellido, dni, telefono, direccion, altura, provincia, codigopostal)
-      toast.warn("Todos los campos son obligatorios");
-      return false
-    } 
-      else if (!stringRegex.test(usuario.nombre)) {
-      toast.warn("Debes ingresar un nombre válido")
-      return false
-    }  
-    else if (!stringRegex.test(usuario.apellido)) {
-      toast.warn("Debes ingresar un apellido válido")
-      return false
-    }
-    else if ( !numberRegex.test(usuario.dni)) {
-      toast.warn("Debes ingresar un dni válido")
-      return false
-    }
-    else if ( !numberRegex.test(usuario.telefono)) {
-      toast.warn("Debes ingresar un telefono válido")
-      return false
-    }
-    else if (!emailRegex.test(usuario.email)) {
-      toast.error('Debes ingresar un mail correcto')
-      return false
-    }
-
-    // else if (usuario.mail2 != usuario.mail) {
-    //   toast.warn("El mail debe coincidir con el ingresado")
-    //   return false
-    // }
-    
-    else if ( !stringRegex.test(usuario.direccion)) {
-      toast.warn("Debes ingresar una dirección válida")
-      return false
-    }
-    else if ( !numberRegex.test(usuario.altura)) {
-      toast.warn("Debes ingresar una altura válida")
-      return false
-    }
-    else if ( !numberRegex.test(usuario.codigopostal)) {
-     toast.warn("Debes ingresar un codigo válido")
-     return false
-   }
-
-
-    else {
-      toast.success("Datos guardados")
-      setStep(step+1)
-    }
-  
-
-
-
-
-
-
-
-
-
-  // //   else if ( !stringRegex.test(usuario.calle)) {
-  // //     toast.warn("Debes ingresar una calle válida")
-  // //     return false
-  // //   }
-  // //   else if ( !numberRegex.test(usuario.altura)) {
-  // //     toast.warn("Debes ingresar una altura válida")
-  // //     return false
-  // //   }
-  // //   else if ( !numberRegex.test(usuario.tarjeta)) {
-  // //     toast.warn("Debes ingresar una altura válida")
-  // //     return false
-  // // } 
- 
-  // }
-    
+        if (Object.values(datosPersonales).includes("")) {
+          console.log(nombre, apellido, dni, telefono, direccion, altura, provincia, codigopostal)
+          toast.warn("Todos los campos son obligatorios");
+          return false
+        } 
+          else if (!stringRegex.test(usuario.nombre)) {
+          toast.warn("Debes ingresar un nombre válido")
+          return false
+        }  
+        else if (!stringRegex.test(usuario.apellido)) {
+          toast.warn("Debes ingresar un apellido válido")
+          return false
+        }
+        else if ( !numberRegex.test(usuario.dni)) {
+          toast.warn("Debes ingresar un dni válido")
+          return false
+        }
+        else if ( !numberRegex.test(usuario.telefono)) {
+          toast.warn("Debes ingresar un telefono válido")
+          return false
+        }
+        else if (!emailRegex.test(usuario.email)) {
+          toast.error('Debes ingresar un mail correcto')
+          return false
+        }   
+        else if ( !stringRegex.test(usuario.direccion)) {
+          toast.warn("Debes ingresar una dirección válida")
+          return false
+        }
+        else if ( !numberRegex.test(usuario.altura)) {
+          toast.warn("Debes ingresar una altura válida")
+          return false
+        }
+        else if ( !numberRegex.test(usuario.codigopostal)) {
+        toast.warn("Debes ingresar un codigo válido")
+        return false
+        }
+        else {
+          toast.success("Datos guardados")
+          setStep(step+1)
+        }
+  }
+  const validarDatosPago = () => {
+    console.log('Nueva validacion')
   }
 
   const finalizarCompra = () => {
-    // validarDatos()
+    validarDatosPago()
     setStep( step + 1)
     limpiarCarrito()
   }
