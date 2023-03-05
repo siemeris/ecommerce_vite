@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { useCompra } from './AppProvider'
+import CheckOutConfirm from './CheckOutConfirm'
 import CheckOutFormCard from './CheckOutFormCard'
 import CheckOutFormUser from './CheckOutFormUser'
 import CheckOutProductList from './CheckOutProductList'
 import CheckOutStep from './CheckOutStep'
 import CheckOutTotal from './CheckOutTotal'
+
 
 
 
@@ -17,19 +20,32 @@ const CheckOut = () => {
   const {usuario, setUsuario, itemsCarrito, totalProductos, limpiarCarrito,eliminarProducto, productosIcono} = useCompra()
 
 
-  // const validarDatos = () => {
-  //   const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-  //   const stringRegex =  /^[a-zA-Z ]+$/
-  //   const numberRegex = /^[0-9]+$/
+  
+  
 
-  //   if (Object.values(usuario).includes("")) {
-  //     toast.warn("Todos los campos son obligatorios");
-  //     return false
-  //   } 
-  //   else if (!stringRegex.test(usuario.nombre)) {
-  //     toast.warn("Debes ingresar un nombre válido")
-  //     return false
-  //   }
+  const validarDatos = () => {
+     const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+     const stringRegex =  /^[a-zA-Z ]+$/
+     const numberRegex = /^[0-9]+$/
+
+
+     const {nombre, apellido, dni, telefono, direccion, altura, provincia, codigopostal} = usuario
+     const datosPersonales = [nombre, apellido, dni, telefono, direccion, altura, provincia, codigopostal]
+     
+    if (Object.values(datosPersonales).includes("")) {
+      console.log(nombre, apellido, dni, telefono, direccion, altura, provincia, codigopostal)
+      toast.warn("Todos los campos son obligatorios");
+      return false
+    } 
+      else if (!stringRegex.test(usuario.nombre)) {
+      toast.warn("Debes ingresar un nombre válido")
+      return false
+    }  
+    else {
+      console.log('Verificando')
+      setStep(step+1)
+    }
+  
   //   else if (!stringRegex.test(usuario.apellido)) {
   //     toast.warn("Debes ingresar un apellido válido")
   //     return false
@@ -79,11 +95,10 @@ const CheckOut = () => {
   // //     toast.warn("Debes ingresar una altura válida")
   // //     return false
   // // } 
-  //   else {
-  //     return true
-  //   }
+ 
   // }
-
+    
+  }
 
   const finalizarCompra = () => {
     // validarDatos()
@@ -109,30 +124,19 @@ const CheckOut = () => {
         </div>
         <p className='text-gray-800 text-sm inline-block ml-7 mb-5 text-grey-300 hover:cursor-pointer '>¿Tenés cuenta? <span className='underline hover:cursor-pointer ' >Ingresá</span></p>
 
-            <CheckOutStep
-              step={step}
-            />
+            <CheckOutStep step={step}/>
 
             {/* Carrito lista de productos */}
             <div className='w-full '>
               {/* Header de la lista */}
               <div className="w-full container bg-gray-200 flex m-auto justify-around text-sm">
-                <h3 className='py-3 w-1/2 m-auto text-center  text-blue-800 font-semibold border-b border-blue-800'>
-                    {step === 1 && `Carrito (${productosIcono})`}
-                    {step === 2 && "Envios a domicilio"}
-                  </h3>
-                <h3 className='py-3 w-1/2 m-auto text-center text-gray-800 font-semibold '>
-                    {step === 1 && "Favoritos"}
-                    {step === 2 && "Retiro en sucursal"}
-                  </h3>
+                <h3 className='py-3 w-1/2 m-auto text-center  text-blue-800 font-semibold border-b border-blue-800'>{step === 1 && `Carrito (${productosIcono})`}{step === 2 && "Envios a domicilio"}</h3>
+                <h3 className='py-3 w-1/2 m-auto text-center text-gray-800 font-semibold '>{step === 1 && "Favoritos"}{step === 2 && "Retiro en sucursal"}</h3>
               </div>
 
               {/* productos en el carrito */}
               {step === 1 &&
-           
                 <CheckOutProductList />
-
-              
               }
                 
               {/* Garantia */}
@@ -144,41 +148,14 @@ const CheckOut = () => {
               </div>
               }
               
-          
-
-              {/* Formulario de datos */}
+              
               {step === 2 && <CheckOutFormUser />}
 
               {/* Metodo de pago */}
               {step === 3 && 
                 <>
-                  <div className='w-11/12 m-auto py-5 border-b border-gray-800 mb-5'>
-                      <p className='font-semibold text-gray-800 text-center mb-5 text-'>Confirmación de datos</p>
-                      <div className='border-1 rounded-md p-2'>
-                        <h3 className='font-semibold text-gray-700'>Datos personales</h3>
-                        <p className='text-sm text-gray-700'>{usuario.nombre}</p>
-                        <p className='text-blue-500 text-sm'>{usuario.mail} - {usuario.telefono}</p>
-                        <p className='text-sm text-gray-700'>{usuario.provincia} - Buenos Aires</p>
-                        <p className='text-sm text-gray-700'>{usuario.direccion} - número 123</p>
-                      </div>
-                  </div>
-                  {/* Metodo de envío */}
-                  <div className='w-11/12 m-auto py-5 border-b border-gray-800 mb-5'>
-                  <p className='font-semibold text-gray-800 text-center mb-5 text-'>Metodo de envío</p>
-                    <div className='flex gap-2 border-1 border-gray-800 border-dashed'>
-                          <div className='w-11/12 py-2 px-4 border-blue-400 border-4  m-auto rounded-md'>
-                            <h3 className='font-semibold text-base mb-5'>Standard</h3>
-                            <p className='text-sm'>(4-7 días hábiles)</p>
-                            <p className='text-sm text-gray-400'>Gratis</p>
-                          </div>
-
-                          <div className='w-11/12 py-2 px-4 border-gray-800 border-4  m-auto rounded-md'>
-                            <h3 className='font-semibold text-base mb-5'>Rápido</h3>
-                            <p className='text-sm'>(2-4 días hábiles)</p>
-                            <p className='text-sm text-blue-400'>$300</p>
-                          </div>
-                        </div>
-                  </div>
+                  <CheckOutConfirm />
+               
                   <CheckOutFormCard />
                 </>
               }
@@ -193,9 +170,7 @@ const CheckOut = () => {
                     <p className='text-grey-800 text-sm font-semibold text-gray-800'>Tengo código de descuento</p>
                     <svg className=' my-auto w-5 h-5 hover:cursor-pointer hover:text-red-600' onClick={() => setMostrarCodigo(!mostrarCodigo)}fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
                   </div>
-                  {mostrarCodigo && 
-                    <input type="text" className='border-b border-gray-800 inline-block bg-gray-200' />
-                  }
+                  {mostrarCodigo && <input type="text" className='border-b border-gray-800 inline-block bg-gray-200' />}
 
                   <CheckOutTotal />
 
@@ -203,10 +178,12 @@ const CheckOut = () => {
 
                   {/* Boton para continuar */}
                   {
-                    step <= 2 
-                      &&
-                      <button className='w-full rounded-sm bg-violet-700 text-white uppercase font-semibold text-sm py-3 hover:cursor-pointer'
-                      onClick={() => setStep( step + 1)}>Continuar</button>
+                    step === 1 && <button className='w-full rounded-sm bg-violet-700 text-white uppercase font-semibold text-sm py-3 hover:cursor-pointer'
+                      onClick={() => setStep(step+1)}>Continuar</button>
+                  }
+                  {
+                    step === 2 && <button className='w-full rounded-sm bg-violet-700 text-white uppercase font-semibold text-sm py-3 hover:cursor-pointer'
+                      onClick={() => validarDatos()}>Continuar</button>
                   }
                   {
                     step === 3
@@ -222,12 +199,10 @@ const CheckOut = () => {
               
               <div className='h-screen bg-white-200 w-full py-10 m-auto relative'>
                     <img src="./public/img/circulo.png" alt="" className='absolute -mt-10 w-full m-auto'/>
-                    {/* <div className='h-48 w-48 rounded-full bg-green-200 absolute z-0 -mt-16 '></div> */}
-
-                      
+                     
                   <div className='z-20 absolute w-full m-auto'>
                      
-                      <svg className="w-20 h-20 m-auto text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" ><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                      <svg className="w-20 h-20 m-auto text-white" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" ><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
 
                       <p className='w-9/12 m-auto text-white font-bold text-center text-xl mb-5 '>¡Transacción exitosa!</p>
                   
@@ -236,8 +211,8 @@ const CheckOut = () => {
                         <p className='text-xs text-gray-300 mb-5'>N° de operación: 5012364785</p>
 
                         <div className='flex flex-col w-11/12 m-auto items-center gap-3'>
-                          <button className='hover:cursor-pointer w-2/3 shadow-md text-white bg-violet-700 hover:bg-violet-800 text-xs p-2 rounded-md' onClick={() => setStep( 1 )}>Seguir comprando</button>
-                          <button className='hover:cursor-pointer w-2/3 shadow-md text-violet-700  border-2 text-xs rounded-md p-2 border-violet-700 hover:border-violet-400 '>Ir a mis compras</button>
+                            <Link to={"/"} className='hover:cursor-pointer w-2/3 shadow-md text-white bg-violet-700 hover:bg-violet-800 text-xs p-2 rounded-md' onClick={() => setStep( 1 )}>Seguir comprando</Link>
+                            <button className='hover:cursor-pointer w-2/3 shadow-md text-violet-700  border-2 text-xs rounded-md p-2 border-violet-700 hover:border-violet-400 '>Ir a mis compras</button>
                         </div>
                       </div>
 

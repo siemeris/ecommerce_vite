@@ -1,6 +1,10 @@
 import React from "react";
+import { useCompra } from "./AppProvider";
 
 const CheckOutProduct = ({ producto }) => {
+
+  const {eliminarProducto} = useCompra()
+
   return (
     <div className="flex gap-3">
       <div className="w-1/3 flex items-center justify-center">
@@ -8,7 +12,7 @@ const CheckOutProduct = ({ producto }) => {
       </div>
       <div className="w-2/3 p-5">
         <h3 className="text-start text-gray-800 font-bold text-2xl">{producto.title}</h3>
-        <p className="text-start text-sm text-violet-700">Envío gratis este es el menu la lista del carrito???</p>
+        <p className="text-start text-sm text-violet-700">Envío gratis</p>
         <p className="text-start text-sm text-violet-700">Cantidad: {producto.cantidad}</p>
         <p className="text-start text-sm text-violet-700">Stock</p>
         <p className="text-start text-md text-gray-800">Negro</p>

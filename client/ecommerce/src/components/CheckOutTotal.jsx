@@ -11,9 +11,9 @@ const CheckOutTotal = () => {
     <div>
       {/* Lista del carrito */}
       <div className="w-full border-b border-gray-400 mb-5">
-        <div className="w-full flex justify-between items-center">
+        <div className="w-full flex justify-between items-center flex-col">
           {itemsCarrito.map((producto) => {
-            <CheckOutTotalProduct key={producto.id} producto={producto} />;
+            return <CheckOutTotalProduct key={producto.id} producto={producto} />;
           })}
         </div>
         <div className="w-full flex justify-between items-center py-5">

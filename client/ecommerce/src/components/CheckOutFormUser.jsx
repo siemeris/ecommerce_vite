@@ -1,6 +1,10 @@
 import React from 'react'
+import { useCompra } from './AppProvider'
 
 const CheckOutFormUser = () => {
+
+  const {usuario, setUsuario} = useCompra()
+
   return (
     <div>
           <div className='w-full'>
@@ -56,7 +60,7 @@ const CheckOutFormUser = () => {
                        {/* Input */}
                        <div className='flex flex-col gap-1 mb-3'>
                         <label className='text-sm font-semibold text-gray-800' htmlFor="dni">Provincia: </label>
-                        <select  onChange={ e => setUsuario( {...usuario, telefono : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu provincia'>
+                        <select  onChange={ e => setUsuario( {...usuario, provincia : e.target.value})} className='bg-gray-200 rounded-md border-0 py-1 px-3 placeholder:text-sm placeholder:text-gray-800' type="text" id='dni' placeholder='Ingresa tu provincia'>
                           <option value="Buenos Aires">Buenos Aires</option>
                           <option value="Catamarca">Catamarca</option>
                           <option value="Chacho">Chaco</option>

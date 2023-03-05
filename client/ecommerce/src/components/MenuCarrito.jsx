@@ -13,7 +13,7 @@ const MenuCarrito = ({ setMenuCarritoVisible, menuCarritoVisible }) => {
   return (
     <>
       <div className="w-1/5 h-screen bottom-0 left-0 bg-violet-100 opacity-80 absolute"></div>
-      <div className="right-0 bottom-0 w-4/5 h-screen z-30 bg-blue-100 pt-7 fixed overflow-scroll">
+      <div className="right-0 bottom-0 w-4/5 h-screen z-30 bg-blue-100 pt-7 fixed overflow-scroll transition-all">
         {/* Titulo */}
         <div className="w-full flex justify-between content-center border-b pb-5 border-gray-300">
           <h3 className="w-4/5 text-gray-400 text-start uppercase font-bold m-auto">
